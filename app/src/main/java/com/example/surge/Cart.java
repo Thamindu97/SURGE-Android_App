@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -32,6 +33,8 @@ public class Cart extends AppCompatActivity {
     protected void onStart() {
 
         super.onStart();
+
+
 
     }
 }
