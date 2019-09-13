@@ -5,13 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Button btnCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        btnCard = (Button) findViewById(R.id.button_card);
     }
 
     public void onClickSignUp(View view)
@@ -20,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickAdd(View view)
+    public void onClickCard(View view)
     {
-        Intent intent1 = new Intent(this, Add.class);
-        startActivity(intent1);
+        Intent intent = new Intent(this,CardDetails.class);
+        startActivity(intent);
     }
 }
