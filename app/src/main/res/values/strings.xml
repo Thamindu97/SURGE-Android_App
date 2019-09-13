@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SURGE</string>
+    <string name="name">Name</string>
+    <string name="email">Email Address</string>
+    <string name="password">Password</string>
+    <string name="confirmPassword">Confirm Password</string>
+    <string name="mobile">Mobile Number</string>
+
 </resources>
