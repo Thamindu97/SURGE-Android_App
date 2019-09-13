@@ -13,7 +13,10 @@
         <activity android:name=".MyProfile" />
         <activity android:name=".AboutMe" />
         <activity android:name=".SignUp" />
+        <activity android:name=".Add" />
+        <activity android:name=".AddClothes" />
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
