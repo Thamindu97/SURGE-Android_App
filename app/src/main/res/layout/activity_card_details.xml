@@ -105,4 +105,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_card_name" />
+
+    <TextView
+        android:id="@+id/textView_card_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/button_card_confirmpay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_card_date"
+        app:layout_constraintVertical_bias="0.283"
+        tools:text="Surge uses industry-standard encryption to protect the confidentiality of your personal information" />
 </androidx.constraintlayout.widget.ConstraintLayout>
