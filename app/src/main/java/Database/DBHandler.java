@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class DBHandler extends SQLiteOpenHelper {
+public class   DBHandler extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "Surge.db";
 
@@ -26,6 +26,20 @@ public class DBHandler extends SQLiteOpenHelper {
         //Specify the primary key from the BaseColumns interface.
 
         db.execSQL(SQL_CREATE_Customer);
+
+        //FOR adding clothes (ashfaq)
+
+        String SQL_CREATE_Clothes =
+                "CREATE TABLE " + UsersMaster.TABLE2_NAME + " (" +
+                        UsersMaster._ID + " INTEGER PRIMARY KEY ," +
+                        UsersMaster.COLUMN2_NAME_CLOTHTYPE + " TEXT," +
+                        UsersMaster.COLUMN2_NAME_SIZE + " TEXT," +
+                        UsersMaster.COLUMN2_NAME_COLOUR + " TEXT," +
+                        UsersMaster.COLUMN2_NAME_PRICE + " INTEGER)";
+        //Specify the primary key from the BaseColumns interface.
+
+        db.execSQL(SQL_CREATE_Clothes);
+
 
     }
 
@@ -54,6 +68,27 @@ public class DBHandler extends SQLiteOpenHelper {
             return true;
         else
             return false;
+    }
+
+    public boolean addClothes(String clothtype, String size,String colour,Integer price) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        // Gets the data repository in write mode
+        // Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(UsersMaster.COLUMN2_NAME_CLOTHTYPE, clothtype);
+        values.put(UsersMaster.COLUMN2_NAME_SIZE, size);
+        values.put(UsersMaster.COLUMN2_NAME_COLOUR, colour);
+        values.put(UsersMaster.COLUMN2_NAME_PRICE, price);
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId = db.insert(UsersMaster.TABLE2_NAME, null, values);
+
+        if(newRowId == -1)
+            return false;
+        else
+            return true;
+
     }
 
 
