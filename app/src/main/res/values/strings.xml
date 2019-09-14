@@ -16,6 +16,5 @@
     <string name="button_card_confirmpay">Confirm and Pay</string>
     <string name="imageView_card_cardimg">Card Image</string>
     <string name="button_card">Card</string>
-    <string name="back">back</string>
 
 </resources>
