@@ -2,10 +2,7 @@ package com.example.surge;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,9 +13,7 @@ import Database.DBHandler;
 public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
 
-/*    public static final String NAME = "1";
-    public static final String EMAIL = "2";
-    public static final String MOBILE = "3";*/
+
 
     EditText txt_UserName, txt_Email, txt_Password, txt_MobileNo;
     String userName, email, password, mobileNo;
@@ -32,9 +27,9 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        txt_UserName = findViewById(R.id.name);
+        txt_UserName = findViewById(R.id.name2);
         txt_MobileNo = findViewById(R.id.mobileno);
-        txt_Email = findViewById(R.id.email);
+        txt_Email = findViewById(R.id.txt_email);
         txt_Password = findViewById(R.id.password1);
 
         signUp = (Button)findViewById(R.id.btn_signup);
@@ -78,6 +73,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
             }
         }
         else{
+
             Toast toast = Toast.makeText(getApplicationContext(), "Please fill the empty fields", Toast.LENGTH_LONG);
             toast.show();
         }
