@@ -16,5 +16,7 @@
     <string name="button_card_confirmpay">Confirm and Pay</string>
     <string name="imageView_card_cardimg">Card Image</string>
     <string name="button_card">Add Card</string>
+    <string name="textView_card_paycard">Payment Card</string>
+    <string name="textView_card_mastervisa">Mastercard/Visa</string>
 
 </resources>

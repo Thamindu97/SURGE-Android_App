@@ -123,4 +123,30 @@
         app:layout_constraintVertical_bias="0.283"
         tools:text="Surge uses industry-standard encryption to protect the confidentiality of your personal information" />
 
+    <TextView
+        android:id="@+id/textView_card_paycard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/textView_card_paycard"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/imageView_card_cardimg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView_card_cardimg" />
+
+    <TextView
+        android:id="@+id/textView_card_mastervisa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/textView_card_mastervisa"
+        app:layout_constraintEnd_toStartOf="@+id/imageView_card_cardimg"
+        app:layout_constraintHorizontal_bias="0.569"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_card_paycard" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
