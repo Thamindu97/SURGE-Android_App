@@ -33,4 +33,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Add.class);
         startActivity(intent);
     }
+
+    public void onClickAboutMe(View view)
+    {
+        Intent intent = new Intent(this, AboutMe.class);
+        startActivity(intent);
+    }
 }

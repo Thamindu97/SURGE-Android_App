@@ -9,7 +9,7 @@
 
 
     <Button
-        android:id="@+id/buttonAddClothes"
+        android:id="@+id/buttonSignUp"
         android:layout_width="103dp"
         android:layout_height="49dp"
         android:layout_alignParentStart="true"

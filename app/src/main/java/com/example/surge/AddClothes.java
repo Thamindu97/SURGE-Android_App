@@ -30,7 +30,7 @@ public class AddClothes extends AppCompatActivity {
         colour = findViewById(R.id.txtColour);
         price = findViewById(R.id.txtPrice);
 
-        addcloth=findViewById(R.id.buttonAddClothes);
+        addcloth=findViewById(R.id.buttonSignUp);
         AddData();
 
     }

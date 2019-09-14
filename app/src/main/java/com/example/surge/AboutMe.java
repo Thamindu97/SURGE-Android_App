@@ -20,6 +20,7 @@ public class AboutMe extends AppCompatActivity {
     DBHandler db;
     Button update, remove;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
