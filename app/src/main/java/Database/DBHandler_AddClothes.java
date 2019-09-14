@@ -2,8 +2,14 @@ package Database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.surge.Clothes;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBHandler_AddClothes extends SQLiteOpenHelper {
 
@@ -61,5 +67,52 @@ public class DBHandler_AddClothes extends SQLiteOpenHelper {
         else
             return true;
 
+    }
+
+    public List readAllClothes(){
+
+        //get readable mode
+        SQLiteDatabase db = getReadableDatabase();
+
+        //projection
+        String[] projection = {Contractor.Clothes._ID,
+                Contractor.Clothes.COLUMN2_NAME_CLOTHTYPE,
+                Contractor.Clothes.COLUMN2_NAME_SIZE,
+                Contractor.Clothes.COLUMN2_NAME_COLOUR,
+                Contractor.Clothes.COLUMN2_NAME_PRICE
+        };
+
+        //database query which returns a cursor object
+        Cursor cursor = db.query(
+                Contractor.Clothes.TABLE2_NAME,
+                projection,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+
+        //list declarations
+        List<Clothes> stockList = new ArrayList<>();
+
+        while(cursor.moveToNext()){
+
+            int cId = cursor.getInt(cursor.getColumnIndexOrThrow(Contractor.Clothes._ID));
+            String cClothType = cursor.getString(cursor.getColumnIndexOrThrow(Contractor.Clothes.COLUMN2_NAME_CLOTHTYPE));
+            String cClothSize = cursor.getString(cursor.getColumnIndexOrThrow(Contractor.Clothes.COLUMN2_NAME_SIZE));
+            String cColour = cursor.getString(cursor.getColumnIndexOrThrow(Contractor.Clothes.COLUMN2_NAME_COLOUR));
+            String cPrice = cursor.getString(cursor.getColumnIndexOrThrow(Contractor.Clothes.COLUMN2_NAME_PRICE));
+
+            //add the retrieved stocks information into the product class using the overloaded constructor
+            Clothes stocks = new Clothes(cId, cClothType, cClothSize, cColour, cPrice);
+
+            stockList.add(stocks);
+        }
+
+        cursor.close();
+
+        return stockList;
     }
 }

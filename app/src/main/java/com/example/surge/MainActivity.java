@@ -9,14 +9,10 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnCard;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        btnCard = (Button) findViewById(R.id.button_addcard);
 
     }
 
@@ -26,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickaddCard(View view)
+    public void onClickAdd(View view)
     {
-        Intent intent = new Intent(this, CardDetails.class);
+        Intent intent = new Intent(this, Add.class);
         startActivity(intent);
     }
 }

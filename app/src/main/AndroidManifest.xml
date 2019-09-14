@@ -9,12 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CardDetails"></activity>
-        <activity android:name=".Cart" />
+        <activity android:name=".Cart"/>
+
+
         <activity android:name=".MyProfile" />
         <activity android:name=".AboutMe" />
         <activity android:name=".SignUp" />
         <activity android:name=".Add" />
+        <activity android:name=".ClothesView" />
         <activity android:name=".AddClothes" />
         <activity android:name=".MainActivity">
 
