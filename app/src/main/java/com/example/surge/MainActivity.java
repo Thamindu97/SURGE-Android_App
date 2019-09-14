@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static String userName;
+    public static String userName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickAboutMe(View view)
     {
-        Intent intent = new Intent(this, AboutMe.class);
-        startActivity(intent);
+        if(!userName.equals("")) {
+            Intent intent = new Intent(this, AboutMe.class);
+            startActivity(intent);
+        }
     }
 }

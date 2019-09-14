@@ -18,11 +18,13 @@
         <activity android:name=".AboutMe" />
         <activity android:name=".SignUp" />
         <activity android:name=".Add" />
+        <activity android:name=".Login" />
         <activity android:name=".ClothesView" />
         <activity android:name=".AddAccessories"/>
         <activity android:name=".AddClothes" />
         <activity android:name=".AccessoryView"/>
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
