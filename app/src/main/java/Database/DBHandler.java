@@ -31,7 +31,10 @@ public class   DBHandler extends SQLiteOpenHelper {
 
         //FOR adding clothes (ashfaq)
 
+        //Card Details
 
+        String SQL_CREATE_CardDetails =
+                "CREATE TABLE " + UsersMaster.CardDetails.TABLE3_NAME + " (" + UsersMaster.CardDetails._ID + " INTEGER PRIMARY KEY," + UsersMaster.CardDetails.COLUMN3_NAME_USERNAME + " TEXT," + UsersMaster.CardDetails.COLUMN3_NAME_CARDNO + " TEXT," + UsersMaster.CardDetails.COLUMN3_NAME_EXDATE + " TEXT," + UsersMaster.CardDetails.COLUMN3_NAME_CVV + " TEXT)";
 
 
     }

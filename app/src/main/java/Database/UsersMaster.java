@@ -19,13 +19,11 @@ public class UsersMaster implements BaseColumns {
     // Card Details Table
     public static class CardDetails implements BaseColumns {
 
-        public static final String TABLE_NAME = "carddetails";
-        public static final String COLUMN_NAME_USERNAME = "username";
-        public static final String COLUMN_NAME_CARDNO = "cardno";
-        public static final String COLUMN_NAME_EXDATE= "exdate";
-        public static final String COLUMN_NAME_CVV= "cvv";
+        public static final String TABLE3_NAME = "carddetails";
+        public static final String COLUMN3_NAME_USERNAME = "username";
+        public static final String COLUMN3_NAME_CARDNO = "cardno";
+        public static final String COLUMN3_NAME_EXDATE = "exdate";
+        public static final String COLUMN3_NAME_CVV = "cvv";
     }
 
-
 }
-
