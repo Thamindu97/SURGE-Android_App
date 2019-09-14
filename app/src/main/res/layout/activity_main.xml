@@ -31,7 +31,7 @@
         android:layout_marginTop="268dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="onClickAddtoCart"
+        android:onClick="onClickBuyItNow"
         android:text="@string/button_buyitnow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
