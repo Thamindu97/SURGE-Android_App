@@ -19,5 +19,11 @@
     <string name="back">Back</string>
     <string name="Add">Add</string>
     <string name="Register">Register</string>
+    <string name="Update">ID</string>
+    <string name="Update2">Cloth Type</string>
+    <string name="Update3">Size</string>
+    <string name="Update4">Colour</string>
+    <string name="Update5">Price</string>
+    <string name="Update6">Update</string>
 
 </resources>
