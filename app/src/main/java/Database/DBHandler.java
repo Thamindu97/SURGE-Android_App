@@ -45,6 +45,15 @@ public class   DBHandler extends SQLiteOpenHelper {
 
         db.execSQL(SQL_CREATE_CardDetails);
 
+        //Creating Accessories table =
+        String SQL_CREATE_ACCESSORIES =
+                "CREATE TABLE " + UsersMaster.Accessories.TABLE_NAME + " (" + UsersMaster.Accessories._ID + " INTEGER PRIMARY KEY," +
+                        UsersMaster.Accessories.COLUMN_NAME_TYPE + " TEXT," +
+                        UsersMaster.Accessories.COLUMN_NAME_GENDER + " TEXT," +
+                        UsersMaster.Accessories.COLUMN_NAME_COLOUR + " TEXT," +
+                        UsersMaster.Accessories.COLUMN_NAME_PRICE + " TEXT)";
+
+        db.execSQL(SQL_CREATE_ACCESSORIES);
 
     }
 
@@ -75,7 +84,28 @@ public class   DBHandler extends SQLiteOpenHelper {
             return false;
     }
 
+    public boolean addAccessory(String ascType, String ascGender, String ascColour, String ascPrice) {
+        SQLiteDatabase db = getWritableDatabase();
 
+        ContentValues values = new ContentValues();
+        values.put(UsersMaster.Accessories.COLUMN_NAME_TYPE, ascType);
+        values.put(UsersMaster.Accessories.COLUMN_NAME_GENDER, ascGender);
+        values.put(UsersMaster.Accessories.COLUMN_NAME_COLOUR, ascColour);
+        values.put(UsersMaster.Accessories.COLUMN_NAME_PRICE, ascPrice);
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId = db.insert(UsersMaster.Accessories.TABLE_NAME, null, values);
+
+        if(newRowId == -1)
+            return false;
+        else
+            return true;
+    }
+
+    public Integer deleteAccessory(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(UsersMaster.Accessories.TABLE_NAME, "ID = ?",new String[] {id});
+    }
 
     //Add Card Detials
     public boolean addCardDetails(String name, String cardno, String date, String cvv) {
