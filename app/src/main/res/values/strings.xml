@@ -16,5 +16,13 @@
     <string name="button_card_confirmpay">Confirm and Pay</string>
     <string name="imageView_card_cardimg">Card Image</string>
     <string name="button_card">Add Card</string>
+    <string name="Update">ID</string>
+    <string name="Update2">Cloth Type</string>
+    <string name="Update3">Size</string>
+    <string name="Update4">Colour</string>
+    <string name="Update5">Price</string>
+    <string name="Update6">Update</string>
+    <string name="back">Back</string>
+    <string name="buttonAdd">Add </string>
 
 </resources>
