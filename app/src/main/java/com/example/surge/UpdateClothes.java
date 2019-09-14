@@ -2,8 +2,10 @@ package com.example.surge;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -18,7 +20,10 @@ public class UpdateClothes extends AppCompatActivity {
 
     ImageView back;//variable for the back button
     EditText eStocksUpdateId, eStocksUpdateClothType, eStocksUpdateSize, eStocksUpdateColour, eStocksUpdatePrice; //variables for the edit text
+    EditText eClothesDeleteId;
+    Button clothesDeleteButton;
     Button clothesUpdateButton;
+    Vibrator vibr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,9 @@ public class UpdateClothes extends AppCompatActivity {
                 startActivity(it1);
             }
         });
+
+        vibr = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+
         /*---------------back button [END]-----------------*/
 
         /*---------------update crud operation 1st part [START]---------------*/
@@ -56,11 +64,15 @@ public class UpdateClothes extends AppCompatActivity {
         eStocksUpdateColour.addTextChangedListener(updateStocksTextWatcher);
         eStocksUpdatePrice.addTextChangedListener(updateStocksTextWatcher);
 
-        /*---------------update crud operation 1st part [END]-----------------*/
+
+
+        ///=================DELETE====================/////
+
+
     }
 
     /*---------------insert crud operation 2nd part [START]---------------*/
-    public void onClick(View view){
+    public void onClickUpdate(View view){
 
         int onStocksUpdateId = Integer.parseInt(eStocksUpdateId.getText().toString());
         String onStocksUpdatetClothType = eStocksUpdateClothType.getText().toString();
@@ -79,6 +91,7 @@ public class UpdateClothes extends AppCompatActivity {
             //Toast message if insertion is successful
             t = Toast.makeText(getApplicationContext(),"Stocks has been updated successfully!", Toast.LENGTH_LONG);
             t.show();
+            vibr.vibrate(35);
         }
         else{
             //Toast message if insertion fails
@@ -106,6 +119,49 @@ public class UpdateClothes extends AppCompatActivity {
 
             clothesUpdateButton.setEnabled(!onStocksUpdateId.isEmpty() && !onStocksUpdatetClothType.isEmpty() && !onStocksUpdateSize.isEmpty() && !onStocksUpdateColour.isEmpty() && !onStocksUpdatePrice.isEmpty());
 
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
+        }
+    };
+
+    public void onClickDelete(View view){
+
+        int onStocksDeleteId = Integer.parseInt(eClothesDeleteId.getText().toString());
+
+        //DBHandler object created
+        DBHandler_AddClothes dbhandler = new DBHandler_AddClothes(this);
+
+        //Toast creation
+        Toast t;
+
+        //check if the insertion was successful
+        if(dbhandler.deleteClothes(onStocksDeleteId)){
+            //Toast message if deletion is successful
+            t = Toast.makeText(getApplicationContext(),"Stock has been deleted from FoxFire!", Toast.LENGTH_LONG);
+            t.show();
+        }
+        else{
+            //Toast message if insertion fails
+            t = Toast.makeText(getApplicationContext(),"Stock deletion failed!", Toast.LENGTH_LONG);
+            t.show();
+        }
+    }
+
+    private TextWatcher deleteSalesTextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            String onSalesDeleteId = eClothesDeleteId.getText().toString().trim();
+
+            clothesDeleteButton.setEnabled(!onSalesDeleteId.isEmpty());
         }
 
         @Override

@@ -2,8 +2,10 @@ package com.example.surge;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +19,8 @@ public class AddClothes extends AppCompatActivity {
 
     Button addcloth;
     DBHandler_AddClothes db;
+
+    Vibrator vibr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,8 @@ public class AddClothes extends AppCompatActivity {
 
         addcloth=findViewById(R.id.buttonSignUp);
         AddData();
+
+        vibr = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
 
     }
 
@@ -49,6 +55,9 @@ public class AddClothes extends AppCompatActivity {
 
                             Intent intent = new Intent(AddClothes.this, ClothesView.class);
                             startActivity(intent);
+                            vibr.vibrate(35);
+
+
                         }else
                             Toast.makeText(AddClothes.this,"Data not Inserted",Toast.LENGTH_LONG).show();
                     }
@@ -58,5 +67,11 @@ public class AddClothes extends AppCompatActivity {
         );
 
 
+    }
+
+    public void onClickHome(View view){
+
+        Intent intent = new Intent(AddClothes.this,MainActivity.class);
+        startActivity(intent);
     }
 }
