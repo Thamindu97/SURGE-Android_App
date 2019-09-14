@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.surge">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,8 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Login"></activity>
-        <activity android:name=".UpdateClothes" />
+        <activity android:name=".UpdateClothes"/>
+        <activity android:name=".DeleteClothes"/>
         <activity android:name=".Cart" />
         <activity android:name=".CardDetails" />
         <activity android:name=".MyProfile" />
@@ -18,9 +20,9 @@
         <activity android:name=".SignUp" />
         <activity android:name=".Add" />
         <activity android:name=".ClothesView" />
-        <activity android:name=".AddAccessories" />
+        <activity android:name=".AddAccessories"/>
         <activity android:name=".AddClothes" />
-        <activity android:name=".AccessoryView" />
+        <activity android:name=".AccessoryView"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,10 +30,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
