@@ -16,7 +16,7 @@
         <activity android:name=".Cart" />
         <activity android:name=".CardDetails" />
         <activity android:name=".MyProfile" />
-        <activity android:name=".AboutMe" />
+        <activity android:name=".AboutMe"  android:theme="@style/AppTheme.popUpStyle"/>
         <activity android:name=".SignUp" />
         <activity android:name=".Add" />
         <activity android:name=".Login" />

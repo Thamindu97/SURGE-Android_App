@@ -54,12 +54,13 @@
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="166dp"
-        android:layout_height="51dp"
+        android:layout_width="192dp"
+        android:layout_height="61dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/buttonstyle"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,11 +71,13 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="104dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="48dp"
-        android:text="TextView"
+        android:layout_width="84dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="8dp"
+        android:text="New User ?"
+        android:textColor="#7E7E86"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_logpassword" />
 
@@ -84,20 +87,23 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@android:color/transparent"
         android:onClick="onClickSignUp"
-        android:text="SignUp"
+        android:text="Sign Up"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.235"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView8" />
 
     <EditText
         android:id="@+id/txt_logusername"
-        android:layout_width="306dp"
-        android:layout_height="55dp"
+        android:layout_width="345dp"
+        android:layout_height="57dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/buttonstyle2"
+        android:gravity="center"
         android:ems="10"
         android:hint="@string/name"
         android:inputType="textPersonName"
@@ -108,16 +114,18 @@
 
     <EditText
         android:id="@+id/txt_logpassword"
-        android:layout_width="303dp"
-        android:layout_height="47dp"
+        android:layout_width="337dp"
+        android:layout_height="56dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/buttonstyle2"
+        android:gravity="center"
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.641"
+        app:layout_constraintHorizontal_bias="0.596"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_logusername" />
 

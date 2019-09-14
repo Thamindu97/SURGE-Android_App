@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/pic5_a"
     tools:context=".AboutMe">
 
     <TextView
@@ -14,6 +15,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="116dp"
+        android:background="#C9CCCF"
         android:text="@string/name"
         android:textSize="19sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +28,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="512dp"
         android:layout_marginEnd="8dp"
-        android:background="@android:color/black"
+        android:background="@drawable/buttonstyle3"
         android:text="Update"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +42,7 @@
         android:layout_height="46dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="@android:color/black"
+        android:background="@drawable/buttonstyle3"
         android:text="Remove My ACC"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,12 +54,13 @@
 
     <TextView
         android:id="@+id/txt_mobile"
-        android:layout_width="131dp"
-        android:layout_height="34dp"
+        android:layout_width="135dp"
+        android:layout_height="51dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
+        android:background="#C9CCCF"
         android:text="@string/mobile"
         android:textSize="19sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,6 +74,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
+        android:background="#BDBDC9"
         android:text="@string/email"
         android:textSize="19sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,13 +82,15 @@
 
     <EditText
         android:id="@+id/name2"
-        android:layout_width="215dp"
-        android:layout_height="51dp"
+        android:layout_width="224dp"
+        android:layout_height="48dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:gravity="left"
         android:inputType="textPersonName"
+        android:textColor="@color/colorText"
         app:layout_constraintBaseline_toBaselineOf="@+id/txt_name"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -96,8 +102,10 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/pacifico"
         android:text="About Me"
         android:textAlignment="center"
+        android:textColor="@color/colorText"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/imageView3"
@@ -111,6 +119,7 @@
         android:layout_height="36dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
+        android:background="#C9CCCF"
         android:text="@string/password"
         android:textSize="19sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -118,31 +127,37 @@
 
     <EditText
         android:id="@+id/email2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="219dp"
+        android:layout_height="51dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:gravity="left"
         android:inputType="textEmailAddress"
+        android:textColor="@color/colorText"
         app:layout_constraintBaseline_toBaselineOf="@+id/txt_email"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/mobileNo2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="223dp"
+        android:layout_height="51dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:gravity="left"
         android:inputType="phone"
+        android:textColor="@color/colorText"
         app:layout_constraintBaseline_toBaselineOf="@+id/txt_mobile"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/password2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="219dp"
+        android:layout_height="58dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:gravity="left"
         android:inputType="textPassword"
+        android:textColor="@color/colorText"
         app:layout_constraintBaseline_toBaselineOf="@+id/txt_logpassword"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -154,6 +169,6 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/pp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
