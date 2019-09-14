@@ -2,14 +2,9 @@ package Database;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.surge.AboutMe;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class   DBHandler extends SQLiteOpenHelper {
@@ -25,7 +20,7 @@ public class   DBHandler extends SQLiteOpenHelper {
     {
         String SQL_CREATE_Customer =
                 "CREATE TABLE " + UsersMaster.TABLE1_NAME + " (" +
-                        UsersMaster._ID + " INTEGER PRIMARY KEY," +
+                        UsersMaster._ID + " INTEGER PRIMARY KEY ," +
                         UsersMaster.COLUMN1_NAME_USERNAME + " TEXT," +
                         UsersMaster.COLUMN1_NAME_EMAIL + " TEXT," +
                         UsersMaster.COLUMN1_NAME_MOBILENO + " TEXT," +
@@ -69,54 +64,7 @@ public class   DBHandler extends SQLiteOpenHelper {
     }
 
 
-    // take the details of logged in user
-    public void readLoggedUserInfo(String uName)
-    {
-        SQLiteDatabase db = getReadableDatabase();
 
-        // define a projection that specifies which columns from the database
-        // you will actually use after this query
-        String[] projection = {
-                UsersMaster._ID,
-                UsersMaster.COLUMN1_NAME_USERNAME,
-                UsersMaster.COLUMN1_NAME_EMAIL,
-                UsersMaster.COLUMN1_NAME_MOBILENO,
-                //UsersMaster.COLUMN1_NAME_ADDRESS,
-                UsersMaster.COLUMN1_NAME_PASSWORD
-        };
-
-        //Filter results WHERE "uName" = ''
-        String selection = UsersMaster.COLUMN1_NAME_USERNAME + " = ?" ;
-        String[] selectionArgs = {uName};
-
-
-
-        Cursor cursor = db.query(
-                UsersMaster.TABLE1_NAME,           // the table to query
-                projection,                 // the columns to return
-                selection,               // the columns for the WHERE clause
-                selectionArgs,            // the values for the WHERE clause
-                null,               // don't group the rows
-                null,                // don't filter by row groups
-                null                  // the sort order
-        );
-
-        while(cursor.moveToNext()) {
-            AboutMe ab = new AboutMe();
-            ab.txt_Name.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.COLUMN1_NAME_USERNAME)));
-            ab.txt_Email.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.COLUMN1_NAME_EMAIL)));
-            ab.txt_Phone.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.COLUMN1_NAME_MOBILENO)));
-            //ab.txt_Address.setText( cursor.getString( cursor.getColumnIndexOrThrow(UsersMaster.COLUMN1_NAME_ADDRESS)));
-            ab.txt_Password.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.COLUMN1_NAME_PASSWORD)));
-        }
-
-    }
 
 
 }
-
-
-
-
-
-

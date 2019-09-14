@@ -21,11 +21,4 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SignUp.class);
         startActivity(intent);
     }
-
-    public void onClickAboutMe(View view)
-    {
-        Intent intent = new Intent(this, AboutMe.class);
-        startActivity(intent);
-    }
-
 }
