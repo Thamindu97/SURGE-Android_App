@@ -26,7 +26,6 @@ public class AboutMe extends AppCompatActivity {
         setContentView(R.layout.activity_about_me);
 
         txt_Name = findViewById(R.id.name2);
-        txt_Address = findViewById(R.id.address2);
         txt_Email = findViewById(R.id.email2);
         txt_Phone = findViewById(R.id.mobileNo2);
         txt_Password = findViewById(R.id.password2);
