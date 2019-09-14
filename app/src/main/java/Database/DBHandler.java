@@ -169,5 +169,48 @@ public class   DBHandler extends SQLiteOpenHelper {
 
     }
 
+    // update customer details
+    public boolean updateCustomerInfo(String userName, String email, String phone, String password) {
+
+        SQLiteDatabase db = getReadableDatabase();
+
+        //New value for one column
+        ContentValues values = new ContentValues();
+        values.put(UsersMaster.COLUMN1_NAME_EMAIL, email);
+        values.put(UsersMaster.COLUMN1_NAME_MOBILENO,phone);
+        values.put(UsersMaster.COLUMN1_NAME_PASSWORD,password);
+
+        //Which row to update, based on the title
+        String selection = UsersMaster.COLUMN1_NAME_USERNAME + " LIKE ?";
+        String[] selectionArgs = {userName};
+
+        int count = db.update(
+                UsersMaster.TABLE1_NAME,
+                values,
+                selection,                   // the columns for the WHERE clause
+                selectionArgs               // the values for the WHERE clause
+        );
+
+        if(count >= 1)
+            return true;
+        else
+            return false;
+    }
+
+    // delete customer info
+    public void deleteCustomerInfo(String userName){
+
+        SQLiteDatabase db = getReadableDatabase();
+
+        //Define 'where' part of query
+        String selection = UsersMaster.COLUMN1_NAME_USERNAME + " LIKE ?";
+
+        //Specify arguments n placeholder order
+        String[] selectionArgs = { userName };
+
+        //Issue SQL statement
+        db.delete(UsersMaster.TABLE1_NAME, selection, selectionArgs);
+
+    }
 
 }

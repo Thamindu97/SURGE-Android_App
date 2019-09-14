@@ -15,7 +15,7 @@ import Database.DBHandler;
 
 public class AboutMe extends AppCompatActivity {
 
-    public static EditText txt_Name , txt_Password, txt_Phone, txt_Email, txt_Address;
+    public static EditText txt_Name , txt_Password, txt_Phone, txt_Email;
     String name , password, phone, email, address;
     DBHandler db;
     Button update, remove;
@@ -39,22 +39,37 @@ public class AboutMe extends AppCompatActivity {
         showData();
 
 
-/*        update.setOnClickListener(new View.OnClickListener() {
+        update.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
 
+                name = txt_Name.getText().toString();
+                password = txt_Password.getText().toString();
+                phone = txt_Phone.getText().toString();
+                email = txt_Email.getText().toString();
+
                 if(!txt_Name.equals("") && !txt_Password.equals("") &&  ( !txt_Phone.equals("") || !txt_Email.equals("")  )){
-                    if(DBHandler.updateInfo(uname, pswd)) {
-                        Toast t = Toast.makeText(getApplicationContext(), "User Updated! ", Toast.LENGTH_LONG);
+                    if(db.updateCustomerInfo(name, password, phone, email)) {
+                        Toast t = Toast.makeText(getApplicationContext(), "User details successfully Updated! ", Toast.LENGTH_LONG);
                         t.show();
                     }
                     else{
-                        Toast t = Toast.makeText(getApplicationContext(), "User can't be Updated! ", Toast.LENGTH_LONG);
+                        Toast t = Toast.makeText(getApplicationContext(), "User details cannot be Updated! ", Toast.LENGTH_LONG);
                         t.show();
                     }
                 }
             }
-        }); */
+        });
+
+        remove.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                name = txt_Name.getText().toString();
+                if(!name.equals("")){
+                    db.deleteCustomerInfo(name);
+                }
+            }
+        });
 
     }
 
