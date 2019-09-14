@@ -46,7 +46,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.967"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_card_carddetails" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_card_carddetails"
+        app:srcCompat="@drawable/carddetails_cardicon" />
 
     <EditText
         android:id="@+id/editText_card_name"
@@ -121,4 +122,5 @@
         app:layout_constraintTop_toBottomOf="@+id/editText_card_date"
         app:layout_constraintVertical_bias="0.283"
         tools:text="Surge uses industry-standard encryption to protect the confidentiality of your personal information" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
