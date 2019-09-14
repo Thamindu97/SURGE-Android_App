@@ -15,8 +15,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
 
 
-    EditText txt_UserName, txt_Email, txt_Password, txt_MobileNo;
-    String userName, email, password, mobileNo;
+    EditText txt_UserName, txt_Email, txt_Password, txt_MobileNo, txt_Password2;
+    String userName, email, password, password2 , mobileNo;
     DBHandler db;
     Button signUp;
 
@@ -31,6 +31,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         txt_MobileNo = findViewById(R.id.mobileno);
         txt_Email = findViewById(R.id.txt_email);
         txt_Password = findViewById(R.id.password1);
+        txt_Password2 = findViewById(R.id.password2);
 
         signUp = (Button)findViewById(R.id.btn_signup);
 
@@ -59,10 +60,22 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         email = txt_Email.getText().toString();
         mobileNo = txt_MobileNo.getText().toString();
         password = txt_Password.getText().toString();
+        password2 = txt_Password2.getText().toString();
+
 
         // validations
         if(!userName.equals("") && !password.equals("") && ( !mobileNo.equals("") || !email.equals(""))){
-            if(db.addRegisterInfo(userName, email, mobileNo, password)){
+            if(mobileNo.length() != 10 ){
+                Toast t = Toast.makeText(getApplicationContext(), "Please provide a valid mobile No!", Toast.LENGTH_LONG);
+                t.show();
+
+            }
+            else if(!password.equals(password2)){
+                Toast t = Toast.makeText(getApplicationContext(), "Passwords doesn't match", Toast.LENGTH_LONG);
+                t.show();
+            }
+
+            else if(db.addRegisterInfo(userName, email, mobileNo, password)){
                 Toast t = Toast.makeText(getApplicationContext(), "You have successfully registered!", Toast.LENGTH_LONG);
                 t.show();
             }

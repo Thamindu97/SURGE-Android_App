@@ -7,6 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.surge.AboutMe;
+import com.example.surge.MainActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class   DBHandler extends SQLiteOpenHelper {
@@ -163,7 +167,6 @@ public class   DBHandler extends SQLiteOpenHelper {
             ab.txt_Name.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.COLUMN1_NAME_USERNAME)));
             ab.txt_Email.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.COLUMN1_NAME_EMAIL)));
             ab.txt_Phone.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.COLUMN1_NAME_MOBILENO)));
-            //ab.txt_Address.setText( cursor.getString( cursor.getColumnIndexOrThrow(UsersMaster.COLUMN1_NAME_ADDRESS)));
             ab.txt_Password.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.COLUMN1_NAME_PASSWORD)));
         }
 
@@ -212,5 +215,53 @@ public class   DBHandler extends SQLiteOpenHelper {
         db.delete(UsersMaster.TABLE1_NAME, selection, selectionArgs);
 
     }
+
+
+
+    // search the given user
+    public boolean readUserInfo(String uName, String pwd)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+
+        // define a projection that specifies which columns from the database
+        // you will actually use after this query
+        String[] projection = {
+                UsersMaster._ID,
+                UsersMaster.COLUMN1_NAME_USERNAME,
+                UsersMaster.COLUMN1_NAME_PASSWORD
+        };
+
+        //Filter results WHERE "userName" = '?' and "password" = '?'
+        String selection = UsersMaster.COLUMN1_NAME_USERNAME + " = ?" + " AND " + UsersMaster.COLUMN1_NAME_PASSWORD + " = ?";
+
+        String[] selectionArgs = {uName, pwd};
+
+
+        Cursor cursor = db.query(
+                UsersMaster.TABLE1_NAME,           // the table to query
+                projection,                 // the columns to return
+                selection,               // the columns for the WHERE clause
+                selectionArgs,            // the values for the WHERE clause
+                null,               // don't group the rows
+                null,                // don't filter by row groups
+                null                  // the sort order
+        );
+
+
+        while(cursor.moveToNext()){
+            MainActivity mn = new MainActivity();
+            mn.userName =(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.COLUMN1_NAME_USERNAME)));
+        }
+
+        if (cursor.getCount() == 0)
+            return false;
+        else
+            return true;
+        // cursor.close();
+
+    }
+
+
+
 
 }

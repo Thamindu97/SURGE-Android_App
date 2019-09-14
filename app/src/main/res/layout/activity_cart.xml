@@ -9,7 +9,7 @@
     tools:context=".Cart">
 
     <Button
-        android:id="@+id/button_card"
+        android:id="@+id/button_cart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/button_card"
@@ -19,7 +19,7 @@
         android:id="@+id/recyclerview_cartitems"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/button_card"
+        android:layout_above="@id/button_cart"
         ></androidx.recyclerview.widget.RecyclerView>
 
 </RelativeLayout>

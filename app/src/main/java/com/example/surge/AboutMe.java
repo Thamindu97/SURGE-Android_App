@@ -16,7 +16,7 @@ import Database.DBHandler;
 public class AboutMe extends AppCompatActivity {
 
     public static EditText txt_Name , txt_Password, txt_Phone, txt_Email;
-    String name , password, phone, email, address;
+    String name , password, phone, email;
     DBHandler db;
     Button update, remove;
 
@@ -49,7 +49,13 @@ public class AboutMe extends AppCompatActivity {
                 email = txt_Email.getText().toString();
 
                 if(!txt_Name.equals("") && !txt_Password.equals("") &&  ( !txt_Phone.equals("") || !txt_Email.equals("")  )){
-                    if(db.updateCustomerInfo(name, password, phone, email)) {
+                    if(phone.length() != 10 ){
+                        Toast t = Toast.makeText(getApplicationContext(), "Please provide a valid mobile No!", Toast.LENGTH_LONG);
+                        t.show();
+
+                    }
+
+                    else if(db.updateCustomerInfo(name, password, phone, email)) {
                         Toast t = Toast.makeText(getApplicationContext(), "User details successfully Updated! ", Toast.LENGTH_LONG);
                         t.show();
                     }
@@ -75,7 +81,8 @@ public class AboutMe extends AppCompatActivity {
 
     private void showData()
     {
-        db.readLoggedUserInfo("Thamindu");
+        MainActivity mn = new MainActivity();
+        db.readLoggedUserInfo(mn.userName);
     }
 
 

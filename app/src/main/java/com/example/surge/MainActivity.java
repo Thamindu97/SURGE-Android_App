@@ -9,16 +9,20 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static String userName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
     }
 
     public void onClickSignUp(View view)
     {
-        Intent intent = new Intent(this, SignUp.class);
+        Intent intent = new Intent(this, Login.class);
         startActivity(intent);
     }
 

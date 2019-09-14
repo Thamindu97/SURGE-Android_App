@@ -20,13 +20,13 @@ public class Cart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
-        recyclerView = findViewById(R.id.cart_recyclerview);
+        recyclerView = findViewById(R.id.recyclerview_cartitems);
         recyclerView.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        btnCheckout = (Button) findViewById(R.id.button_cart_checkout);
+        btnCheckout = (Button) findViewById(R.id.button_cart);
     }
 
     @Override
