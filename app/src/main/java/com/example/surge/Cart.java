@@ -26,7 +26,7 @@ public class Cart extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        btnaddCard = (Button) findViewById(R.id.button_card);
+        btnaddCard = (Button) findViewById(R.id.button_cart);
     }
 
     @Override
