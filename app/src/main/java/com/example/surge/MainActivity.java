@@ -22,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickAddCard(View view)
+    public void onClickAddtoCart(View view)
     {
-        Intent intent = new Intent(this, CardDetails.class);
+        Intent intent = new Intent(this, Cart.class);
         startActivity(intent);
     }
 

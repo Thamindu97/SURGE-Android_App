@@ -148,28 +148,12 @@ public class DBHandler_AddClothes extends SQLiteOpenHelper {
         }
     }
 
-    public boolean deleteClothes(int pId){
+    //Retrieve Cloth Data
 
-        //get readable mode
-        SQLiteDatabase db = getReadableDatabase();
-
-        //selection
-        String selection = Contractor.Clothes._ID + " LIKE ?";
-
-        //Argument
-        String[] selectionArg = {String.valueOf(pId)};
-
-        //query to delete a sale
-        int success = db.delete(Contractor.Clothes.TABLE2_NAME,
-                selection,
-                selectionArg
-        );
-
-        if(success == -1){
-            return false;
-        }
-        else{
-            return true;
-        }
+    public Cursor ClothData()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from Clothes", null);
+        return cursor;
     }
 }

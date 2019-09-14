@@ -20,4 +20,10 @@ public class Add extends AppCompatActivity {
 
         startActivity(intent2);
     }
+
+    public void onClickAccessories(View view){
+        Intent intent3 = new Intent(this, AddAccessories.class);
+
+        startActivity(intent3);
+    }
 }

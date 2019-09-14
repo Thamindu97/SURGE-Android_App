@@ -5,8 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import com.example.surge.AboutMe;
+
+import java.util.List;
 
 
 public class   DBHandler extends SQLiteOpenHelper {
@@ -45,6 +46,15 @@ public class   DBHandler extends SQLiteOpenHelper {
 
         db.execSQL(SQL_CREATE_CardDetails);
 
+        //Creating Accessories table =
+        String SQL_CREATE_ACCESSORIES =
+                "CREATE TABLE " + UsersMaster.Accessories.TABLE_NAME + " (" + UsersMaster.Accessories._ID + " INTEGER PRIMARY KEY," +
+                        UsersMaster.Accessories.COLUMN_NAME_TYPE + " TEXT," +
+                        UsersMaster.Accessories.COLUMN_NAME_GENDER + " TEXT," +
+                        UsersMaster.Accessories.COLUMN_NAME_COLOUR + " TEXT," +
+                        UsersMaster.Accessories.COLUMN_NAME_PRICE + " TEXT)";
+
+        db.execSQL(SQL_CREATE_ACCESSORIES);
 
     }
 
@@ -75,7 +85,28 @@ public class   DBHandler extends SQLiteOpenHelper {
             return false;
     }
 
+    public boolean addAccessory(String ascType, String ascGender, String ascColour, String ascPrice) {
+        SQLiteDatabase db = getWritableDatabase();
 
+        ContentValues values = new ContentValues();
+        values.put(UsersMaster.Accessories.COLUMN_NAME_TYPE, ascType);
+        values.put(UsersMaster.Accessories.COLUMN_NAME_GENDER, ascGender);
+        values.put(UsersMaster.Accessories.COLUMN_NAME_COLOUR, ascColour);
+        values.put(UsersMaster.Accessories.COLUMN_NAME_PRICE, ascPrice);
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId = db.insert(UsersMaster.Accessories.TABLE_NAME, null, values);
+
+        if(newRowId == -1)
+            return false;
+        else
+            return true;
+    }
+
+    public Integer deleteAccessory(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(UsersMaster.Accessories.TABLE_NAME, "ID = ?",new String[] {id});
+    }
 
     //Add Card Detials
     public boolean addCardDetails(String name, String cardno, String date, String cvv) {
@@ -94,7 +125,6 @@ public class   DBHandler extends SQLiteOpenHelper {
         else
             return false;
     }
-
 
     // take the details of logged in user
     public void readLoggedUserInfo(String uName)
@@ -139,5 +169,48 @@ public class   DBHandler extends SQLiteOpenHelper {
 
     }
 
+    // update customer details
+    public boolean updateCustomerInfo(String userName, String email, String phone, String password) {
+
+        SQLiteDatabase db = getReadableDatabase();
+
+        //New value for one column
+        ContentValues values = new ContentValues();
+        values.put(UsersMaster.COLUMN1_NAME_EMAIL, email);
+        values.put(UsersMaster.COLUMN1_NAME_MOBILENO,phone);
+        values.put(UsersMaster.COLUMN1_NAME_PASSWORD,password);
+
+        //Which row to update, based on the title
+        String selection = UsersMaster.COLUMN1_NAME_USERNAME + " LIKE ?";
+        String[] selectionArgs = {userName};
+
+        int count = db.update(
+                UsersMaster.TABLE1_NAME,
+                values,
+                selection,                   // the columns for the WHERE clause
+                selectionArgs               // the values for the WHERE clause
+        );
+
+        if(count >= 1)
+            return true;
+        else
+            return false;
+    }
+
+    // delete customer info
+    public void deleteCustomerInfo(String userName){
+
+        SQLiteDatabase db = getReadableDatabase();
+
+        //Define 'where' part of query
+        String selection = UsersMaster.COLUMN1_NAME_USERNAME + " LIKE ?";
+
+        //Specify arguments n placeholder order
+        String[] selectionArgs = { userName };
+
+        //Issue SQL statement
+        db.delete(UsersMaster.TABLE1_NAME, selection, selectionArgs);
+
+    }
 
 }

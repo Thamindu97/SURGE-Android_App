@@ -18,7 +18,7 @@
         android:layout_marginTop="484dp"
         android:layout_marginEnd="257dp"
         android:background="@drawable/borders_ashfaq"
-        android:onClick="onClick"
+        android:onClick="onClickAccessories"
         android:text="Accessories"
 
         android:textColor="@color/colorPrimaryDark" />
