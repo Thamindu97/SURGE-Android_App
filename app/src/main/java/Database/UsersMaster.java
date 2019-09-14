@@ -14,6 +14,7 @@ public class UsersMaster implements BaseColumns {
     public static final String COLUMN1_NAME_PASSWORD = "password";
     public static final String COLUMN1_NAME_EMAIL = "email";
     public static final String COLUMN1_NAME_MOBILENO = "mobileno";
+    // public static final String COLUMN1_NAME_ADDRESS = "address";
 
 
     // Card Details Table

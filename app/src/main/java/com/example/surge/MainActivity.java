@@ -22,12 +22,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickAdd(View view)
-    {
-        Intent intent = new Intent(this, Add.class);
-        startActivity(intent);
-    }
-
     public void onClickAddCard(View view)
     {
         Intent intent = new Intent(this, CardDetails.class);
