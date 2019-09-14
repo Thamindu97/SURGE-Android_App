@@ -89,6 +89,8 @@ public class   DBHandler extends SQLiteOpenHelper {
             return false;
     }
 
+    //ACCESSORIES - START
+
     public boolean addAccessory(String ascType, String ascGender, String ascColour, String ascPrice) {
         SQLiteDatabase db = getWritableDatabase();
 
@@ -111,6 +113,14 @@ public class   DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(UsersMaster.Accessories.TABLE_NAME, "ID = ?",new String[] {id});
     }
+
+    public Cursor getAllAccessories() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from "+UsersMaster.Accessories.TABLE_NAME,null);
+        return res;
+    }
+
+    //ACCESSORIES - END
 
     //Add Card Detials
     public boolean addCardDetails(String name, String cardno, String date, String cvv) {
