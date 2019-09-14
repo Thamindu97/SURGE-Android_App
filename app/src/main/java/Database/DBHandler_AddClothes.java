@@ -147,4 +147,13 @@ public class DBHandler_AddClothes extends SQLiteOpenHelper {
             return true;
         }
     }
+
+    //Retrieve Cloth Data
+
+    public Cursor ClothData()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from Clothes", null);
+        return cursor;
+    }
 }

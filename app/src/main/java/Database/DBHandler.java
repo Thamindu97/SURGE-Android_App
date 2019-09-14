@@ -5,8 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import com.example.surge.AboutMe;
+
+import java.util.List;
 
 
 public class   DBHandler extends SQLiteOpenHelper {
@@ -124,7 +125,6 @@ public class   DBHandler extends SQLiteOpenHelper {
         else
             return false;
     }
-
 
     // take the details of logged in user
     public void readLoggedUserInfo(String uName)
