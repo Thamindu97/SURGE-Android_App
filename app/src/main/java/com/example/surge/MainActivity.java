@@ -21,4 +21,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SignUp.class);
         startActivity(intent);
     }
+
+    public void onClickAdd(View view)
+    {
+        Intent intent = new Intent(this, Add.class);
+        startActivity(intent);
+    }
 }
