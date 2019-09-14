@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -43,6 +44,17 @@ public class ClothesView extends AppCompatActivity {
         listView.setAdapter(stocksAdapter);
 
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
+                Intent appInfo = new Intent(ClothesView.this, UpdateClothes.class);
+                startActivity(appInfo);
+            }
+        });
 
     }
+
+
+
+
 }

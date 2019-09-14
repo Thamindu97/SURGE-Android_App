@@ -7,10 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
-import Database.DBHandler;
 import Database.DBHandler_AddClothes;
 
 public class AddClothes extends AppCompatActivity {
@@ -32,7 +30,7 @@ public class AddClothes extends AppCompatActivity {
         colour = findViewById(R.id.txtColour);
         price = findViewById(R.id.txtPrice);
 
-        addcloth=findViewById(R.id.buttonAdd);
+        addcloth=findViewById(R.id.buttonAddClothes);
         AddData();
 
     }

@@ -115,4 +115,36 @@ public class DBHandler_AddClothes extends SQLiteOpenHelper {
 
         return stockList;
     }
+
+    public boolean updateStocks(int cId,String clothtype, String size, String colour, String price){
+
+        //get readable mode
+        SQLiteDatabase db = getReadableDatabase();
+
+        //creation of a map of values to have the new values
+        ContentValues values = new ContentValues();
+
+        values.put(Contractor.Clothes.COLUMN2_NAME_CLOTHTYPE,clothtype);
+        values.put(Contractor.Clothes.COLUMN2_NAME_SIZE,size);
+        values.put(Contractor.Clothes.COLUMN2_NAME_COLOUR,colour);
+        values.put(Contractor.Clothes.COLUMN2_NAME_PRICE,price);
+
+        //selection
+        String selection = Contractor.Clothes._ID + " LIKE ?";
+        String[] selectionArg = new String[] {String.valueOf(cId)};
+
+        //db query to update
+        int success = db.update(Contractor.Clothes.TABLE2_NAME,
+                values,
+                selection,
+                selectionArg
+        );
+
+        if(success == 0){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 }
