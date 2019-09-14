@@ -29,7 +29,7 @@ public class CardDetails extends AppCompatActivity {
         date = findViewById(R.id.editText_card_date);
         cvv = findViewById(R.id.editText_card_cvv);
 
-        confirm = findViewById(R.id.button_card_confirmpay);
+        confirm = findViewById(R.id.button_card_save);
 
         addCardData();
     }

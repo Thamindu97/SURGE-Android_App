@@ -26,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickAddtoCart(View view)
+    public void onClickBuyItNow(View view)
     {
-        Intent intent = new Intent(this, Cart.class);
+        Intent intent = new Intent(this, AddBuyInfo.class);
         startActivity(intent);
     }
 
