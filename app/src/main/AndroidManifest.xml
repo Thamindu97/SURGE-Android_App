@@ -11,8 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UpdateClothes"/>
-        <activity android:name=".DeleteClothes"/>
+        <activity android:name=".AddBuyInfo"></activity>
+        <activity android:name=".UpdateClothes" />
+        <activity android:name=".DeleteClothes" />
         <activity android:name=".CardDetails" />
         <activity android:name=".MyProfile" />
         <activity android:name=".AboutMe" />
@@ -20,11 +21,10 @@
         <activity android:name=".Add" />
         <activity android:name=".Login" />
         <activity android:name=".ClothesView" />
-        <activity android:name=".AddAccessories"/>
+        <activity android:name=".AddAccessories" />
         <activity android:name=".AddClothes" />
-        <activity android:name=".AccessoryView"/>
+        <activity android:name=".AccessoryView" />
         <activity android:name=".MainActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
