@@ -25,5 +25,6 @@
     <string name="button_buyinfo_save">Save</string>
     <string name="textView_buyinfo_paymethod">Payment Method</string>
     <string name="button_buyinfo_card">Credit/Debit Card</string>
+    <string name="button_card_save">Save</string>
 
 </resources>
