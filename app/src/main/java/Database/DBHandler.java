@@ -34,8 +34,14 @@ public class   DBHandler extends SQLiteOpenHelper {
         //Card Details
 
         String SQL_CREATE_CardDetails =
-                "CREATE TABLE " + UsersMaster.CardDetails.TABLE3_NAME + " (" + UsersMaster.CardDetails._ID + " INTEGER PRIMARY KEY," + UsersMaster.CardDetails.COLUMN3_NAME_USERNAME + " TEXT," + UsersMaster.CardDetails.COLUMN3_NAME_CARDNO + " TEXT," + UsersMaster.CardDetails.COLUMN3_NAME_EXDATE + " TEXT," + UsersMaster.CardDetails.COLUMN3_NAME_CVV + " TEXT)";
+                "CREATE TABLE " + UsersMaster.CardDetails.TABLE3_NAME + " (" +
+                        UsersMaster.CardDetails._ID + " INTEGER PRIMARY KEY," +
+                        UsersMaster.CardDetails.COLUMN3_NAME_USERNAME + " TEXT," +
+                        UsersMaster.CardDetails.COLUMN3_NAME_CARDNO + " TEXT," +
+                        UsersMaster.CardDetails.COLUMN3_NAME_EXDATE + " TEXT," +
+                        UsersMaster.CardDetails.COLUMN3_NAME_CVV + " TEXT)";
 
+        db.execSQL(SQL_CREATE_CardDetails);
 
     }
 
@@ -66,8 +72,24 @@ public class   DBHandler extends SQLiteOpenHelper {
             return false;
     }
 
+    //Add Card Detials
+    public boolean addCardDetails(String name, String cardno, String date, String cvv)
+    {
+        SQLiteDatabase db = getWritableDatabase();
 
+        ContentValues values = new ContentValues();
+        values.put(UsersMaster.CardDetails.COLUMN3_NAME_USERNAME, name);
+        values.put(UsersMaster.CardDetails.COLUMN3_NAME_CARDNO, cardno);
+        values.put(UsersMaster.CardDetails.COLUMN3_NAME_EXDATE, date);
+        values.put(UsersMaster.CardDetails.COLUMN3_NAME_CVV, cvv);
 
+        long newRowID = db.insert(UsersMaster.CardDetails.TABLE3_NAME, null, values);
 
+        if (newRowID >= 1)
+            return true;
+        else
+            return false;
+
+    }
 
 }
