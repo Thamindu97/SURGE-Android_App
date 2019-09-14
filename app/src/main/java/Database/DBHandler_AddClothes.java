@@ -147,4 +147,29 @@ public class DBHandler_AddClothes extends SQLiteOpenHelper {
             return true;
         }
     }
+
+    public boolean deleteClothes(int pId){
+
+        //get readable mode
+        SQLiteDatabase db = getReadableDatabase();
+
+        //selection
+        String selection = Contractor.Clothes._ID + " LIKE ?";
+
+        //Argument
+        String[] selectionArg = {String.valueOf(pId)};
+
+        //query to delete a sale
+        int success = db.delete(Contractor.Clothes.TABLE2_NAME,
+                selection,
+                selectionArg
+        );
+
+        if(success == -1){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 }

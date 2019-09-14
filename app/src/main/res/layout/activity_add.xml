@@ -4,66 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@drawable/leo_a"
     tools:context=".Add">
 
     <Button
         android:id="@+id/button8"
-        android:layout_width="111dp"
-        android:layout_height="wrap_content"
+        android:layout_width="126dp"
+        android:layout_height="44dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="432dp"
-        android:layout_marginEnd="269dp"
-        android:layout_marginBottom="192dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="484dp"
+        android:layout_marginEnd="257dp"
         android:background="@drawable/borders_ashfaq"
         android:onClick="onClick"
         android:text="Accessories"
-        android:textColor="@color/colorText" />
+
+        android:textColor="@color/colorPrimaryDark" />
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="97dp"
-        android:layout_height="55dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="117dp"
-        android:layout_marginEnd="46dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="405dp"
+        android:layout_marginEnd="281dp"
         android:background="@drawable/borders_ashfaq"
         android:onClick="onClick"
         android:text="Clothes"
-        android:textColor="@color/colorText" />
+        android:textColor="@color/colorPrimaryDark" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="168dp"
-        android:layout_height="219dp"
+    <Button
+        android:id="@+id/button"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:layout_alignBottom="@+id/textView2"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="219dp"
-        android:layout_marginBottom="8dp"
-
-        android:onClick="onClick"
-        android:scaleType="fitCenter"
-        android:src="@drawable/shirt_a" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="175dp"
-        android:layout_height="199dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="211dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="188dp"
-
-        android:scaleType="fitCenter"
-        android:src="@drawable/accessories_a" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="358dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/btnback_ashfaq"
+        android:shadowColor="@color/colorText" />
 
 </RelativeLayout>

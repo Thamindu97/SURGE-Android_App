@@ -2,8 +2,10 @@ package com.example.surge;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -18,6 +20,7 @@ public class ClothesView extends AppCompatActivity {
     ImageView back;
     DBHandler_AddClothes dbHandler;
     List<Clothes> clothesList;
+    Vibrator vibr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,24 +37,46 @@ public class ClothesView extends AppCompatActivity {
             }
         });
 
-        ListView listView = (ListView)findViewById(R.id.clothes_list_view);
+
+        vibr = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+
+        final ListView listView = (ListView)findViewById(R.id.clothes_list_view);
 
         dbHandler = new DBHandler_AddClothes(this);
 
         clothesList = dbHandler.readAllClothes();
 
-        AddsAdapter stocksAdapter = new AddsAdapter(this,R.layout.adapter_clothes_view,clothesList);
+        final AddsAdapter stocksAdapter = new AddsAdapter(this,R.layout.adapter_clothes_view,clothesList);
         listView.setAdapter(stocksAdapter);
+
+
+        //click to update and delete
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
-                Intent appInfo = new Intent(ClothesView.this, UpdateClothes.class);
-                startActivity(appInfo);
+
+                Intent intent = new Intent(ClothesView.this, UpdateClothes.class);
+                startActivity(intent);
+                vibr.vibrate(28);
             }
         });
 
+
+
+    }
+
+    public void onClickHome(View view){
+
+        Intent intent = new Intent(ClothesView.this,MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickDeletePage(View view){
+
+        Intent intent = new Intent(ClothesView.this,DeleteClothes.class);
+        startActivity(intent);
     }
 
 
