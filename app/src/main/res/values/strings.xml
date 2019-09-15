@@ -28,5 +28,7 @@
     <string name="button_card_save">Save</string>
     <string name="textView_card_desc">Surge uses industry-standard encryption to protect the confidentiality of your personal information</string>
     <string name="button_card_checkout">Checkout</string>
+    <string name="textView_checkout_details">Shipment Details</string>
+    <string name="button_checkout_confirmpay">Confirm and Pay</string>
 
 </resources>
