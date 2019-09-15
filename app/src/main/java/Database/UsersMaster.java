@@ -32,7 +32,7 @@ public class UsersMaster implements BaseColumns {
 
         public static final String TABLE_NAME = "Accessories";
         public static final String COLUMN_NAME_TYPE= "asc_type";
-        public static final String COLUMN_NAME_GENDER = "gender";
+        public static final String COLUMN_NAME_SIZE = "size";
         public static final String COLUMN_NAME_COLOUR = "colour";
         public static final String COLUMN_NAME_PRICE = "price";
     }

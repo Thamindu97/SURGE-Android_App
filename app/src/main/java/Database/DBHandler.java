@@ -54,7 +54,7 @@ public class   DBHandler extends SQLiteOpenHelper {
         String SQL_CREATE_ACCESSORIES =
                 "CREATE TABLE " + UsersMaster.Accessories.TABLE_NAME + " (" + UsersMaster.Accessories._ID + " INTEGER PRIMARY KEY," +
                         UsersMaster.Accessories.COLUMN_NAME_TYPE + " TEXT," +
-                        UsersMaster.Accessories.COLUMN_NAME_GENDER + " TEXT," +
+                        UsersMaster.Accessories.COLUMN_NAME_SIZE + " TEXT," +
                         UsersMaster.Accessories.COLUMN_NAME_COLOUR + " TEXT," +
                         UsersMaster.Accessories.COLUMN_NAME_PRICE + " TEXT)";
 
@@ -91,12 +91,12 @@ public class   DBHandler extends SQLiteOpenHelper {
 
     //ACCESSORIES - START
 
-    public boolean addAccessory(String ascType, String ascGender, String ascColour, String ascPrice) {
+    public boolean addAccessory(String ascType, String ascSize, String ascColour, String ascPrice) {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(UsersMaster.Accessories.COLUMN_NAME_TYPE, ascType);
-        values.put(UsersMaster.Accessories.COLUMN_NAME_GENDER, ascGender);
+        values.put(UsersMaster.Accessories.COLUMN_NAME_SIZE, ascSize);
         values.put(UsersMaster.Accessories.COLUMN_NAME_COLOUR, ascColour);
         values.put(UsersMaster.Accessories.COLUMN_NAME_PRICE, ascPrice);
 
@@ -109,9 +109,28 @@ public class   DBHandler extends SQLiteOpenHelper {
             return true;
     }
 
-    public Integer deleteAccessory(String id) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(UsersMaster.Accessories.TABLE_NAME, "ID = ?",new String[] {id});
+    public boolean deleteAccessory(int id) {
+        //get readable mode
+        SQLiteDatabase db = getReadableDatabase();
+
+        //selection
+        String selection = UsersMaster.Accessories._ID + " LIKE ?";
+
+        //Argument
+        String[] selectionArg = {String.valueOf(id)};
+
+        //query to delete a sale
+        int success = db.delete(UsersMaster.Accessories.TABLE_NAME,
+                selection,
+                selectionArg
+        );
+
+        if(success == -1){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
     public Cursor getAllAccessories() {
