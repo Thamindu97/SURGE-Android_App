@@ -11,15 +11,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="141dp"
-        android:layout_marginTop="107dp"
+        android:layout_marginTop="51dp"
         android:layout_marginEnd="142dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="552dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         tools:src="@tools:sample/avatars" />
 
     <TextView
@@ -37,24 +36,24 @@
         app:layout_constraintHorizontal_bias="0.183"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.455" />
+        app:layout_constraintVertical_bias="0.335" />
 
     <TextView
-        android:id="@+id/acsGenderLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/acsSizeLabel"
+        android:layout_width="43dp"
+        android:layout_height="28dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Gender"
+        android:text="Size"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.224"
+        app:layout_constraintHorizontal_bias="0.252"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.544" />
+        app:layout_constraintVertical_bias="0.435" />
 
     <TextView
         android:id="@+id/acsColorLabel"
@@ -66,7 +65,7 @@
         android:textSize="18sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/acsColorText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.011"
+        app:layout_constraintHorizontal_bias="0.015"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -97,14 +96,14 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/acsGenderText"
+        android:id="@+id/acsSizeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBaseline_toBaselineOf="@+id/acsGenderLabel"
+        app:layout_constraintBaseline_toBaselineOf="@+id/acsSizeLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
@@ -124,7 +123,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.658" />
+        app:layout_constraintVertical_bias="0.519" />
 
     <EditText
         android:id="@+id/acsPriceText"
@@ -145,11 +144,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="163dp"
         android:layout_marginEnd="160dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="148dp"
         android:text="Add Accessory"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintHorizontal_bias="0.26"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -158,10 +157,31 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="141dp"
         android:layout_marginEnd="118dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="32dp"
         android:text="View Accessories"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/acsDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="88dp"
+        android:text="Delete Accessory"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/acsDeleteText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Enter ID to delete"
+        app:layout_constraintBaseline_toBaselineOf="@+id/acsDelete"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
