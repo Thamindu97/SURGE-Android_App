@@ -2,6 +2,7 @@ package Database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -54,5 +55,13 @@ public class DBHandler_Shipment extends SQLiteOpenHelper {
             return true;
         else
             return false;
+    }
+
+    //Read Buy Info
+    public Cursor readBuyInfo(SQLiteDatabase database) {
+
+        String[] projections = {"id", Shipment.BuyInfo.COLUMN4_NAME_NAME, Shipment.BuyInfo.COLUMN4_NAME_PHONE, Shipment.BuyInfo.COLUMN4_NAME_EMAIL, Shipment.BuyInfo.COLUMN4_NAME_STREET, Shipment.BuyInfo.COLUMN4_NAME_CITY};
+        return (database.query(Shipment.BuyInfo.TABLE4_NAME, projections, null, null, null, null, null));
+
     }
 }

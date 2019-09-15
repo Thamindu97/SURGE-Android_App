@@ -1,6 +1,8 @@
 package com.example.surge;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,10 +14,18 @@ public class Checkout extends AppCompatActivity {
 
     Button confirmpay;
 
+    private RecyclerView recyclerView;
+    RecyclerView.LayoutManager layoutManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
+
+        recyclerView = (RecyclerView)findViewById(R.id.recyclerView_shipmentdetails);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
 
         confirmpay = findViewById(R.id.button_checkout_confirmpay);
     }
@@ -27,5 +37,14 @@ public class Checkout extends AppCompatActivity {
         startActivity(intent);
 
         Toast.makeText(this,"Order Successful", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onResume() {
+
+        super.onResume();
+
+        new Checkout_BackgroundTask(recyclerView,this).execute();
+
     }
 }
