@@ -24,7 +24,9 @@
     <string name="textView_shipmentdetails">Add Shipment Details</string>
     <string name="button_buyinfo_save">Save</string>
     <string name="textView_buyinfo_paymethod">Payment Method</string>
-    <string name="button_buyinfo_card">Credit/Debit Card</string>
+    <string name="button_buyinfo_card">Add Credit/Debit Card</string>
     <string name="button_card_save">Save</string>
+    <string name="textView_card_desc">Surge uses industry-standard encryption to protect the confidentiality of your personal information</string>
+    <string name="button_card_checkout">Checkout</string>
 
 </resources>

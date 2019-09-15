@@ -13,7 +13,7 @@ public class CardDetails extends AppCompatActivity {
 
     EditText name, cardno, date, cvv;
 
-    Button confirm;
+    Button save;
 
     DBHandler db;
 
@@ -29,14 +29,14 @@ public class CardDetails extends AppCompatActivity {
         date = findViewById(R.id.editText_card_date);
         cvv = findViewById(R.id.editText_card_cvv);
 
-        confirm = findViewById(R.id.button_card_save);
+        save = findViewById(R.id.button_card_save);
 
         addCardData();
     }
 
     public void addCardData()
     {
-        confirm.setOnClickListener(new View.OnClickListener() {
+        save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 boolean isInserted = db.addCardDetails(name.getText().toString(),
@@ -44,11 +44,12 @@ public class CardDetails extends AppCompatActivity {
 
                 if (isInserted == true)
                 {
-                    Toast.makeText(CardDetails.this,"Data Inserted", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CardDetails.this,"Data Inserted", Toast.LENGTH_SHORT).show();
+
                 }
                 else
                 {
-                    Toast.makeText(CardDetails.this,"Data Not Inserted", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CardDetails.this,"Data Not Inserted", Toast.LENGTH_SHORT).show();
                 }
             }
         });
