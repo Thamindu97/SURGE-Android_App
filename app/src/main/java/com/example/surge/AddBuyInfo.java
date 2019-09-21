@@ -9,9 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import Database.DBHandler;
-import Database.DBHandler_Shipment;
-
 public class AddBuyInfo extends AppCompatActivity {
 
     Button addCard;
