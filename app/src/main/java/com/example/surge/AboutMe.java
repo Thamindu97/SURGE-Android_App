@@ -1,8 +1,5 @@
 package com.example.surge;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.Manifest;
 import android.content.Intent;
 import android.database.Cursor;
@@ -19,11 +16,16 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.IOException;
 import java.util.List;
 
 import Database.DBHandler;
 import pub.devrel.easypermissions.EasyPermissions;
+
+
 
 public class AboutMe extends AppCompatActivity implements EasyPermissions.PermissionCallbacks {
 

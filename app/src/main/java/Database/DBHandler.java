@@ -6,13 +6,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+
 import com.example.surge.AboutMe;
+import com.example.surge.Clothes;
 import com.example.surge.DbBitmapUtility;
 import com.example.surge.MainActivity;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import java.util.List;
 
 
@@ -74,6 +74,19 @@ public class   DBHandler extends SQLiteOpenHelper {
                         UsersMaster.BuyInfo.COLUMN4_NAME_ADDRESS + " TEXT)";
 
         db.execSQL(SQL_CREATE_BuyInfo);
+
+        //clothes table
+        String SQL_CREATE_Clothes =
+                "CREATE TABLE " + UsersMaster.Clothes.TABLE2_NAME + " (" +
+                        UsersMaster.Clothes._ID + " INTEGER PRIMARY KEY ," +
+                        UsersMaster.Clothes.COLUMN2_NAME_CLOTHTYPE + " TEXT," +
+                        UsersMaster.Clothes.COLUMN2_NAME_SIZE + " TEXT," +
+                        UsersMaster.Clothes.COLUMN2_NAME_COLOUR + " TEXT," +
+                        UsersMaster.Clothes.COLUMN2_NAME_PRICE + " TEXT)";
+        //Specify the primary key from the BaseColumns interface.
+
+        db.execSQL(SQL_CREATE_Clothes);
+
 
     }
 
@@ -389,6 +402,145 @@ public class   DBHandler extends SQLiteOpenHelper {
         else
             return false;
 
+    }
+
+    /////------------------------------------clothes table crud------------------------------------------------/////
+
+    public boolean addClothes(String clothtype, String size,String colour,String price) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        // Gets the data repository in write mode
+        // Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(UsersMaster.Clothes.COLUMN2_NAME_CLOTHTYPE, clothtype);
+        values.put(UsersMaster.Clothes.COLUMN2_NAME_SIZE, size);
+        values.put(UsersMaster.Clothes.COLUMN2_NAME_COLOUR, colour);
+        values.put(UsersMaster.Clothes.COLUMN2_NAME_PRICE, price);
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId = db.insert(UsersMaster.Clothes.TABLE2_NAME, null, values);
+
+        if(newRowId == -1)
+            return false;
+        else
+            return true;
+
+    }
+    //retrieving clothes
+    public List readAllClothes(){
+
+        //get readable mode
+        SQLiteDatabase db = getReadableDatabase();
+
+        //projection
+        String[] projection = {UsersMaster.Clothes._ID,
+                UsersMaster.Clothes.COLUMN2_NAME_CLOTHTYPE,
+                UsersMaster.Clothes.COLUMN2_NAME_SIZE,
+                UsersMaster.Clothes.COLUMN2_NAME_COLOUR,
+                UsersMaster.Clothes.COLUMN2_NAME_PRICE
+        };
+
+        //database query which returns a cursor object
+        Cursor cursor = db.query(
+                UsersMaster.Clothes.TABLE2_NAME,
+                projection,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+
+        //list declarations
+        List<Clothes> stockList = new ArrayList<>();
+
+        while(cursor.moveToNext()){
+
+            int cId = cursor.getInt(cursor.getColumnIndexOrThrow(UsersMaster.Clothes._ID));
+            String cClothType = cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.Clothes.COLUMN2_NAME_CLOTHTYPE));
+            String cClothSize = cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.Clothes.COLUMN2_NAME_SIZE));
+            String cColour = cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.Clothes.COLUMN2_NAME_COLOUR));
+            String cPrice = cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.Clothes.COLUMN2_NAME_PRICE));
+
+            //add the retrieved stocks information into the product class using the overloaded constructor
+            Clothes stocks = new Clothes(cId, cClothType, cClothSize, cColour, cPrice);
+
+            stockList.add(stocks);
+        }
+
+        cursor.close();
+
+        return stockList;
+    }
+
+
+    //updating clothes
+    public boolean updateStocks(int cId,String clothtype, String size, String colour, String price){
+
+        //get readable mode
+        SQLiteDatabase db = getReadableDatabase();
+
+        //creation of a map of values to have the new values
+        ContentValues values = new ContentValues();
+
+        values.put(UsersMaster.Clothes.COLUMN2_NAME_CLOTHTYPE,clothtype);
+        values.put(UsersMaster.Clothes.COLUMN2_NAME_SIZE,size);
+        values.put(UsersMaster.Clothes.COLUMN2_NAME_COLOUR,colour);
+        values.put(UsersMaster.Clothes.COLUMN2_NAME_PRICE,price);
+
+        //selection
+        String selection = UsersMaster.Clothes._ID + " LIKE ?";
+        String[] selectionArg = new String[] {String.valueOf(cId)};
+
+        //db query to update
+        int success = db.update(UsersMaster.Clothes.TABLE2_NAME,
+                values,
+                selection,
+                selectionArg
+        );
+
+        if(success == 0){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    //Retrieve Cloth Data
+
+    public Cursor ClothData()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from Clothes", null);
+        return cursor;
+    }
+
+    //deleting clothes
+    public boolean deleteClothes(int pId){
+
+        //get readable mode
+        SQLiteDatabase db = getReadableDatabase();
+
+        //selection
+        String selection = UsersMaster.Clothes._ID + " LIKE ?";
+
+        //Argument
+        String[] selectionArg = {String.valueOf(pId)};
+
+        //query to delete a sale
+        int success = db.delete(UsersMaster.Clothes.TABLE2_NAME,
+                selection,
+                selectionArg
+        );
+
+        if(success == -1){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
 }

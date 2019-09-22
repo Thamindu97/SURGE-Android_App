@@ -14,14 +14,15 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import Database.DBHandler_AddClothes;
+import Database.DBHandler;
 
 public class UpdateClothes extends AppCompatActivity {
 
+
+
     ImageView back;//variable for the back button
-    EditText eStocksUpdateId, eStocksUpdateClothType, eStocksUpdateSize, eStocksUpdateColour, eStocksUpdatePrice; //variables for the edit text
-    EditText eClothesDeleteId;
-    Button clothesDeleteButton;
+    public static EditText eStocksUpdateId, eStocksUpdateClothType, eStocksUpdateSize, eStocksUpdateColour, eStocksUpdatePrice; //variables for the edit text
+    DBHandler db;
     Button clothesUpdateButton;
     Vibrator vibr;
 
@@ -30,7 +31,7 @@ public class UpdateClothes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_clothes);
 
-        /*---------------back button [START]---------------*/
+        //back button
         back = (ImageView)findViewById(R.id.button_back);
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -41,14 +42,17 @@ public class UpdateClothes extends AppCompatActivity {
             }
         });
 
+        //vibrator sensor
         vibr = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
 
-        /*---------------back button [END]-----------------*/
+        Intent intent = getIntent();
+        String ID = intent.getExtras().getString("ID");
 
-        /*---------------update crud operation 1st part [START]---------------*/
 
+        //update implementation
         //assigning values to the variables using the ids of the EditText
         eStocksUpdateId = findViewById(R.id.edit_clothes_update_id);
+        eStocksUpdateId.setText(ID);
         eStocksUpdateClothType = findViewById(R.id.edit_clothes_update_clothtype);
         eStocksUpdateSize = findViewById(R.id.edit_clothes_update_size);
         eStocksUpdateColour = findViewById(R.id.edit_clothes_update_colour);
@@ -66,12 +70,9 @@ public class UpdateClothes extends AppCompatActivity {
 
 
 
-        ///=================DELETE====================/////
-
-
     }
 
-    /*---------------insert crud operation 2nd part [START]---------------*/
+    //onclick
     public void onClickUpdate(View view){
 
         int onStocksUpdateId = Integer.parseInt(eStocksUpdateId.getText().toString());
@@ -81,7 +82,7 @@ public class UpdateClothes extends AppCompatActivity {
         String onStocksUpdatePrice = eStocksUpdatePrice.getText().toString();
 
         //DBHandler object created
-        DBHandler_AddClothes dbhandler = new DBHandler_AddClothes(this);
+        DBHandler dbhandler = new DBHandler(this);
 
         //Toast creation
         Toast t;
@@ -99,7 +100,6 @@ public class UpdateClothes extends AppCompatActivity {
             t.show();
         }
     }
-    /*---------------insert crud operation 2nd part [END]-----------------*/
 
     //TextWatcher function
     private TextWatcher updateStocksTextWatcher = new TextWatcher() {
@@ -127,46 +127,5 @@ public class UpdateClothes extends AppCompatActivity {
         }
     };
 
-    public void onClickDelete(View view){
 
-        int onStocksDeleteId = Integer.parseInt(eClothesDeleteId.getText().toString());
-
-        //DBHandler object created
-        DBHandler_AddClothes dbhandler = new DBHandler_AddClothes(this);
-
-        //Toast creation
-        Toast t;
-
-        //check if the insertion was successful
-        if(dbhandler.deleteClothes(onStocksDeleteId)){
-            //Toast message if deletion is successful
-            t = Toast.makeText(getApplicationContext(),"Stock has been deleted from FoxFire!", Toast.LENGTH_LONG);
-            t.show();
-        }
-        else{
-            //Toast message if insertion fails
-            t = Toast.makeText(getApplicationContext(),"Stock deletion failed!", Toast.LENGTH_LONG);
-            t.show();
-        }
-    }
-
-    private TextWatcher deleteSalesTextWatcher = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            String onSalesDeleteId = eClothesDeleteId.getText().toString().trim();
-
-            clothesDeleteButton.setEnabled(!onSalesDeleteId.isEmpty());
-        }
-
-        @Override
-        public void afterTextChanged(Editable editable) {
-
-        }
-    };
 }
