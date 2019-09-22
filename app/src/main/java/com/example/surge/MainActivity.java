@@ -26,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickAddCard(View View)
+    public void onClickBuyInfo(View View)
     {
-        Intent intent = new Intent(this, CardDetails.class);
+        Intent intent = new Intent(this, BuyInfo.class);
         startActivity(intent);
     }
 

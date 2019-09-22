@@ -38,5 +38,15 @@ public class UsersMaster implements BaseColumns {
         public static final String COLUMN_NAME_PRICE = "price";
     }
 
+    // Buy Info Table
+    public static class BuyInfo implements BaseColumns {
+
+        public static final String TABLE4_NAME = "buyinfo";
+        public static final String COLUMN4_NAME_USERNAME = "name";
+        public static final String COLUMN4_NAME_PHONE = "phone";
+        public static final String COLUMN4_NAME_EMAIL = "email";
+        public static final String COLUMN4_NAME_ADDRESS = "address";
+    }
+
 }
 

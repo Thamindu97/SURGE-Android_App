@@ -63,6 +63,18 @@ public class   DBHandler extends SQLiteOpenHelper {
 
         db.execSQL(SQL_CREATE_ACCESSORIES);
 
+        //Buy Info
+
+        String SQL_CREATE_BuyInfo =
+                "CREATE TABLE " + UsersMaster.BuyInfo.TABLE4_NAME + " (" +
+                        UsersMaster.BuyInfo._ID + " INTEGER PRIMARY KEY," +
+                        UsersMaster.BuyInfo.COLUMN4_NAME_USERNAME + " TEXT," +
+                        UsersMaster.BuyInfo.COLUMN4_NAME_PHONE + " TEXT," +
+                        UsersMaster.BuyInfo.COLUMN4_NAME_EMAIL + " TEXT," +
+                        UsersMaster.BuyInfo.COLUMN4_NAME_ADDRESS+ " TEXT)";
+
+        db.execSQL(SQL_CREATE_BuyInfo);
+
     }
 
     @Override
@@ -208,7 +220,8 @@ public class   DBHandler extends SQLiteOpenHelper {
 
     //ACCESSORIES - END
 
-    //Add Card Detials
+    //INSERT CARD DETAILS
+
     public boolean addCardDetails(String name, String cardno, String date, String cvv) {
         SQLiteDatabase db = getWritableDatabase();
 
@@ -356,6 +369,25 @@ public class   DBHandler extends SQLiteOpenHelper {
             return true;
         // cursor.close();
 
+    }
+
+    //INSERT CARD DETAILS
+
+    public boolean addBuyInfo(String name, String phone, String email, String address) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(UsersMaster.BuyInfo.COLUMN4_NAME_USERNAME, name);
+        values.put(UsersMaster.BuyInfo.COLUMN4_NAME_PHONE, phone);
+        values.put(UsersMaster.BuyInfo.COLUMN4_NAME_EMAIL, email);
+        values.put(UsersMaster.BuyInfo.COLUMN4_NAME_ADDRESS, address);
+
+        long newRowID = db.insert(UsersMaster.BuyInfo.TABLE4_NAME, null, values);
+
+        if (newRowID >= 1)
+            return true;
+        else
+            return false;
     }
 
 }

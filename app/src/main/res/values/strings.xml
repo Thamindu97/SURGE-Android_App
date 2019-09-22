@@ -30,5 +30,10 @@
     <string name="textView_checkout_details">Shipment Details</string>
     <string name="button_checkout_confirmpay">Confirm and Pay</string>
     <string name="rationale_camera">This app needs access to your camera so you can take pictures.</string>
+    <string name="textView_buyinfo_addshipment">Add Shipment Details</string>
+    <string name="editText_buyinfo_name">Name</string>
+    <string name="editText_buyinfo_phone">Phone</string>
+    <string name="editText_buyinfo_email">Email</string>
+    <string name="editText_buyinfo_address">Address</string>
 
 </resources>
