@@ -33,7 +33,7 @@ public class AboutMe extends AppCompatActivity implements EasyPermissions.Permis
     Button update, remove, upload;
     private static final int SELECT_PICTURE = 1;
     Bitmap yourSelectedImage;
-    ImageView imageView;
+    public static ImageView imageView;
     private static final int CAMERA_REQUEST_CODE = 100;
     private static final String TAG = MainActivity.class.getSimpleName();
 

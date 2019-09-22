@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.example.surge.AboutMe;
+import com.example.surge.DbBitmapUtility;
 import com.example.surge.MainActivity;
 
 import java.util.ArrayList;
@@ -237,8 +238,8 @@ public class   DBHandler extends SQLiteOpenHelper {
                 UsersMaster.COLUMN1_NAME_USERNAME,
                 UsersMaster.COLUMN1_NAME_EMAIL,
                 UsersMaster.COLUMN1_NAME_MOBILENO,
-                //UsersMaster.COLUMN1_NAME_ADDRESS,
-                UsersMaster.COLUMN1_NAME_PASSWORD
+                UsersMaster.COLUMN1_NAME_PASSWORD,
+                UsersMaster.COLUMN1_NAME_IMAGE
         };
 
         //Filter results WHERE "uName" = ''
@@ -263,6 +264,7 @@ public class   DBHandler extends SQLiteOpenHelper {
             ab.txt_Email.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.COLUMN1_NAME_EMAIL)));
             ab.txt_Phone.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.COLUMN1_NAME_MOBILENO)));
             ab.txt_Password.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.COLUMN1_NAME_PASSWORD)));
+            ab.imageView.setImageBitmap(DbBitmapUtility.getImage(retrieveDP(uName)));
         }
 
     }
