@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.example.surge.AboutMe;
 import com.example.surge.MainActivity;
@@ -31,7 +32,8 @@ public class   DBHandler extends SQLiteOpenHelper {
                         UsersMaster.COLUMN1_NAME_USERNAME + " TEXT," +
                         UsersMaster.COLUMN1_NAME_EMAIL + " TEXT," +
                         UsersMaster.COLUMN1_NAME_MOBILENO + " TEXT," +
-                        UsersMaster.COLUMN1_NAME_PASSWORD + " TEXT)";
+                        UsersMaster.COLUMN1_NAME_PASSWORD + " TEXT," +
+                        UsersMaster.COLUMN1_NAME_IMAGE + " BLOB)";
         //Specify the primary key from the BaseColumns interface.
 
         db.execSQL(SQL_CREATE_Customer);
@@ -66,6 +68,7 @@ public class   DBHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {
 
+
     }
 
     public boolean addRegisterInfo(String userName, String email, String phoneNo , String password )
@@ -88,6 +91,69 @@ public class   DBHandler extends SQLiteOpenHelper {
         else
             return false;
     }
+
+    // User  DP image insert
+    public void addUserDPEntry( String uname, byte[] image) throws SQLiteException {
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues cv = new  ContentValues();
+        cv.put(UsersMaster.COLUMN1_NAME_IMAGE,   image);
+
+
+        //Which row to update, based on the title
+        String selection = UsersMaster.COLUMN1_NAME_USERNAME + " LIKE ?";
+        String[] selectionArgs = {uname};
+
+
+        db.update(
+                UsersMaster.TABLE1_NAME,
+                cv,
+                selection,                   // the columns for the WHERE clause
+                selectionArgs               // the values for the WHERE clause
+        );
+
+
+
+    }
+
+    public byte[] retrieveDP(String uName)
+    {
+
+        SQLiteDatabase db = getReadableDatabase();
+
+        String[] projection = {
+                UsersMaster.COLUMN1_NAME_IMAGE
+        };
+
+        //Filter results WHERE "uName" = ''
+        String selection = UsersMaster.COLUMN1_NAME_USERNAME + " = ?" ;
+        String[] selectionArgs = {uName};
+
+
+
+        Cursor cursor = db.query(
+                UsersMaster.TABLE1_NAME,           // the table to query
+                projection,                 // the columns to return
+                selection,               // the columns for the WHERE clause
+                selectionArgs,            // the values for the WHERE clause
+                null,               // don't group the rows
+                null,                // don't filter by row groups
+                null                  // the sort order
+        );
+
+        while(cursor.moveToNext()) {
+            byte[] image = cursor.getBlob(0);
+            return image;
+        }
+
+        if (cursor != null && !cursor.isClosed()) {
+            cursor.close();
+        }
+
+        return null;
+    }
+
+
 
     //ACCESSORIES - START
 
