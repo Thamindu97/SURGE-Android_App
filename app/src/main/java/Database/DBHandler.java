@@ -71,7 +71,7 @@ public class   DBHandler extends SQLiteOpenHelper {
                         UsersMaster.BuyInfo.COLUMN4_NAME_USERNAME + " TEXT," +
                         UsersMaster.BuyInfo.COLUMN4_NAME_PHONE + " TEXT," +
                         UsersMaster.BuyInfo.COLUMN4_NAME_EMAIL + " TEXT," +
-                        UsersMaster.BuyInfo.COLUMN4_NAME_ADDRESS+ " TEXT)";
+                        UsersMaster.BuyInfo.COLUMN4_NAME_ADDRESS + " TEXT)";
 
         db.execSQL(SQL_CREATE_BuyInfo);
 
@@ -371,7 +371,7 @@ public class   DBHandler extends SQLiteOpenHelper {
 
     }
 
-    //INSERT CARD DETAILS
+    //INSERT BUY INFO
 
     public boolean addBuyInfo(String name, String phone, String email, String address) {
         SQLiteDatabase db = getWritableDatabase();
@@ -382,12 +382,13 @@ public class   DBHandler extends SQLiteOpenHelper {
         values.put(UsersMaster.BuyInfo.COLUMN4_NAME_EMAIL, email);
         values.put(UsersMaster.BuyInfo.COLUMN4_NAME_ADDRESS, address);
 
-        long newRowID = db.insert(UsersMaster.BuyInfo.TABLE4_NAME, null, values);
+        long newRowID = db.insert(UsersMaster.BuyInfo.TABLE4_NAME,null, values);
 
         if (newRowID >= 1)
             return true;
         else
             return false;
+
     }
 
 }

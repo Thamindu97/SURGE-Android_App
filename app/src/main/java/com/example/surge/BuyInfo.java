@@ -36,11 +36,10 @@ public class BuyInfo extends AppCompatActivity {
         addBuyData();
     }
 
-    //public void onClickAddCard(View View)
-    //{
-    //    Intent intent = new Intent(this, CardDetails.class);
-    //    startActivity(intent);
-    //}
+    public void onClickAddCard(View View)
+    {
+
+    }
 
     public void addBuyData()
     {
@@ -53,7 +52,8 @@ public class BuyInfo extends AppCompatActivity {
                 if (isInserted == true)
                 {
                     Toast.makeText(BuyInfo.this,"Data Inserted", Toast.LENGTH_SHORT).show();
-
+                    Intent intent = new Intent(BuyInfo.this, CardDetails.class);
+                    startActivity(intent);
                 }
                 else
                 {
@@ -61,5 +61,8 @@ public class BuyInfo extends AppCompatActivity {
                 }
             }
         });
+
     }
+
+
 }
