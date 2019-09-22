@@ -108,6 +108,7 @@ public class   DBHandler extends SQLiteOpenHelper {
         values.put(UsersMaster.COLUMN1_NAME_EMAIL, email);
         values.put(UsersMaster.COLUMN1_NAME_MOBILENO, phoneNo);
         values.put(UsersMaster.COLUMN1_NAME_PASSWORD, password);
+        values.put(UsersMaster.COLUMN1_NAME_IMAGE, "");
 
         // Insert new Row
         long newRowId = db.insert(UsersMaster.TABLE1_NAME, null,values);
@@ -290,7 +291,9 @@ public class   DBHandler extends SQLiteOpenHelper {
             ab.txt_Email.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.COLUMN1_NAME_EMAIL)));
             ab.txt_Phone.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.COLUMN1_NAME_MOBILENO)));
             ab.txt_Password.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.COLUMN1_NAME_PASSWORD)));
-            ab.imageView.setImageBitmap(DbBitmapUtility.getImage(retrieveDP(uName)));
+            if(UsersMaster.COLUMN1_NAME_IMAGE != "") {
+                ab.imageView.setImageBitmap(DbBitmapUtility.getImage(retrieveDP(uName)));
+            }
         }
 
     }
