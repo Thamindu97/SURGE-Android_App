@@ -48,5 +48,6 @@
     <string name="editText_editbuyinfo_address">Address</string>
     <string name="uploadImages">Set your image</string>
     <string name="action_pic">Pictures</string>
+    <string name="button_editbuyinfo_save">Save</string>
 
 </resources>

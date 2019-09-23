@@ -1,7 +1,9 @@
 package com.example.surge;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,6 +20,8 @@ public class Login extends AppCompatActivity {
     String name , password;
     DBHandler db;
 
+    Vibrator vibr;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +32,9 @@ public class Login extends AppCompatActivity {
 
         uName = (TextView)findViewById(R.id.txt_logusername);
         pwd = (TextView)findViewById(R.id.txt_logpassword);
+
+        //vibrator sensor
+        vibr = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
 
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +49,7 @@ public class Login extends AppCompatActivity {
                     if( db.readUserInfo(name,password)){
                         Intent MainActivity = new Intent(getApplicationContext(), com.example.surge.MainActivity.class);
                         startActivity(MainActivity);
+                        vibr.vibrate(35);
 
                     }
                     else {
