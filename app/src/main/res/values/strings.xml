@@ -35,5 +35,11 @@
     <string name="editText_buyinfo_phone">Phone</string>
     <string name="editText_buyinfo_email">Email</string>
     <string name="editText_buyinfo_address">Address</string>
+    <string name="textView_checkout">Checkout</string>
+    <string name="textView_checkout_carddetails">Card Details</string>
+    <string name="textView_checkout_buyinfo">Shipment Details</string>
+    <string name="button_checkout_delete">Delete</string>
+    <string name="button_checkout_update">Update</string>
+    <string name="button_buyinfo_next">Next</string>
 
 </resources>

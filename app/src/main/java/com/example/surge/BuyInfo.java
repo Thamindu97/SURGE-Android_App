@@ -31,14 +31,15 @@ public class BuyInfo extends AppCompatActivity {
         email = findViewById(R.id.editText_buyinfo_email);
         address = findViewById(R.id.editText_buyinfo_address);
 
-        save = findViewById(R.id.button_buyinfo_card);
+        save = findViewById(R.id.button_buyinfo_save);
 
         addBuyData();
     }
 
-    public void onClickAddCard(View View)
+    public void onClickNext(View View)
     {
-
+        Intent intent = new Intent(BuyInfo.this, CardDetails.class);
+        startActivity(intent);
     }
 
     public void addBuyData()
@@ -52,8 +53,6 @@ public class BuyInfo extends AppCompatActivity {
                 if (isInserted == true)
                 {
                     Toast.makeText(BuyInfo.this,"Data Inserted", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(BuyInfo.this, CardDetails.class);
-                    startActivity(intent);
                 }
                 else
                 {

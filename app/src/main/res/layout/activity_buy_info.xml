@@ -66,16 +66,18 @@
         app:layout_constraintTop_toBottomOf="@+id/editText_buyinfo_email" />
 
     <Button
-        android:id="@+id/button_buyinfo_card"
-        android:layout_width="0dp"
+        android:id="@+id/button_buyinfo_save"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/button_buyinfo_card"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/button_buyinfo_save"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.899"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_buyinfo_address" />
 
     <EditText
         android:id="@+id/editText_buyinfo_email"
@@ -90,5 +92,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_buyinfo_phone" />
+
+    <Button
+        android:id="@+id/button_buyinfo_next"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="onClickNext"
+        android:text="@string/button_buyinfo_next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
