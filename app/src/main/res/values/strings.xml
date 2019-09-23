@@ -41,5 +41,10 @@
     <string name="button_checkout_delete">Delete</string>
     <string name="button_checkout_update">Update</string>
     <string name="button_buyinfo_next">Next</string>
+    <string name="textView_editbuyinfo_editshipment">Edit Shipment Details</string>
+    <string name="editText_editbuyinfo_name">Name</string>
+    <string name="editText_editbuyinfo_phone">Phone</string>
+    <string name="editText_editbuyinfo_email">Email</string>
+    <string name="editText_editbuyinfo_address">Address</string>
 
 </resources>
