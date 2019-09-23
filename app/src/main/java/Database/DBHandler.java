@@ -457,6 +457,30 @@ public class   DBHandler extends SQLiteOpenHelper {
 
     }
 
+    //UPDATE BUY INFO
+
+    public boolean updateBuyInfo(String uname, String uphone, String uemail, String uaddress)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(UsersMaster.BuyInfo.COLUMN4_NAME_USERNAME,uname);
+        values.put(UsersMaster.BuyInfo.COLUMN4_NAME_PHONE,uphone);
+        values.put(UsersMaster.BuyInfo.COLUMN4_NAME_EMAIL,uemail);
+        values.put(UsersMaster.BuyInfo.COLUMN4_NAME_ADDRESS,uaddress);
+
+        String selection = UsersMaster.BuyInfo.COLUMN4_NAME_USERNAME + " LIKE ?";
+        String[] selectionArgs = {uname};
+
+        int count = db.update(UsersMaster.BuyInfo.TABLE4_NAME,values,selection,selectionArgs);
+
+        if (count >= 1)
+            return true;
+        else
+            return false;
+
+    }
+
     // ********************* END OF BUY INFO *********************
 
     /////------------------------------------clothes table crud------------------------------------------------/////
