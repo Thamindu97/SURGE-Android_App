@@ -22,7 +22,7 @@ import Database.UsersMaster;
 
 public class DetailsActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    ImagesAdapter imagesAdapter;
+    AccessoriesImagesAdapter accessoriesImagesAdapter;
     RecyclerView mRecyclerView;
 
     private static final int IMAGES_LOADER = 0;
@@ -40,8 +40,8 @@ public class DetailsActivity extends AppCompatActivity implements LoaderManager.
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Initialize the adapter and attach it to the RecyclerView
-        imagesAdapter = new ImagesAdapter(this);
-        mRecyclerView.setAdapter(imagesAdapter);
+        accessoriesImagesAdapter = new AccessoriesImagesAdapter(this);
+        mRecyclerView.setAdapter(accessoriesImagesAdapter);
 
         getLoaderManager().initLoader(IMAGES_LOADER, null, this);
 
@@ -56,7 +56,7 @@ public class DetailsActivity extends AppCompatActivity implements LoaderManager.
 
             // This loader will execute the ContentProvider's query method on a background thread
             return new CursorLoader(this,   // Parent activity context
-                    ImagesProvider.CONTENT_URI,   // Provider content URI to query
+                    AccessoriesImagesProvider.CONTENT_URI,   // Provider content URI to query
                     projection,             // Columns to include in the resulting Cursor
                     null,                   // No selection clause
                     null,                   // No selection arguments
@@ -66,14 +66,14 @@ public class DetailsActivity extends AppCompatActivity implements LoaderManager.
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
 
-        imagesAdapter.swapCursor(cursor);
+        accessoriesImagesAdapter.swapCursor(cursor);
 
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
 
-        imagesAdapter.swapCursor(null);
+        accessoriesImagesAdapter.swapCursor(null);
 
     }
 }

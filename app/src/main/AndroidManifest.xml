@@ -34,7 +34,7 @@
                 android:value=".AddAccessories" />
         </activity>
         <provider
-            android:name=".ImagesProvider"
+            android:name=".AccessoriesImagesProvider"
             android:authorities="com.example.surge"
             android:exported="false" />
         <activity android:name=".MainActivity">

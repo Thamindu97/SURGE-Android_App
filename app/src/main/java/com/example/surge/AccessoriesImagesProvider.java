@@ -20,9 +20,9 @@ import static android.provider.BaseColumns._ID;
 //import android.support.annotation.Nullable;
 
 
-public class ImagesProvider extends ContentProvider {
+public class AccessoriesImagesProvider extends ContentProvider {
 
-    public static final String LOG_TAG = ImagesProvider.class.getSimpleName();
+    public static final String LOG_TAG = AccessoriesImagesProvider.class.getSimpleName();
 
     /** URI matcher code for the content URI for the pictures table */
     private static final int PICTURES = 100;
