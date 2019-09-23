@@ -179,17 +179,17 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
 
+        android:layout_marginBottom="8dp"
         android:background="@color/colorPrimary"
         android:text="Upload"
         android:textColor="#064969"
         android:textCursorDrawable="@drawable/buttonstyle3"
         app:layout_constraintBottom_toTopOf="@+id/name2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.901"
+        app:layout_constraintHorizontal_bias="0.893"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView_dp"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintVertical_bias="0.464" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

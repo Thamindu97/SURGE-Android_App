@@ -129,6 +129,7 @@ public class UpdateClothes extends AppCompatActivity {
         @Override
         public void afterTextChanged(Editable editable) {
 
+
         }
     };
 
