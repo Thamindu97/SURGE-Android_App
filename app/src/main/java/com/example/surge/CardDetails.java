@@ -1,13 +1,14 @@
 package com.example.surge;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import Database.DBHandler;
 
 public class CardDetails extends AppCompatActivity {
@@ -15,7 +16,6 @@ public class CardDetails extends AppCompatActivity {
     EditText name, cardno, date, cvv;
 
     Button save;
-    Button checkout;
 
     DBHandler db;
 
@@ -32,7 +32,6 @@ public class CardDetails extends AppCompatActivity {
         cvv = findViewById(R.id.editText_card_cvv);
 
         save = findViewById(R.id.button_card_save);
-        checkout = findViewById(R.id.button_card_checkout);
 
         addCardData();
     }
@@ -58,8 +57,8 @@ public class CardDetails extends AppCompatActivity {
         });
     }
 
-    public void onClickCheckout(View view) {
-
+    public void onClickCheckout(View View)
+    {
         Intent intent = new Intent(this, Checkout.class);
         startActivity(intent);
     }

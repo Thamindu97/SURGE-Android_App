@@ -1,13 +1,13 @@
 package com.example.surge;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import Database.DBHandler;
 
@@ -40,7 +40,7 @@ public class Login extends AppCompatActivity {
 
                 if(!name.equals("") && !password.equals("")) {
                     if( db.readUserInfo(name,password)){
-                        Intent MainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent MainActivity = new Intent(getApplicationContext(), com.example.surge.MainActivity.class);
                         startActivity(MainActivity);
 
                     }

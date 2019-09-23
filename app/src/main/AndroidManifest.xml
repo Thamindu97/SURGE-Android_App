@@ -3,11 +3,7 @@
     package="com.example.surge">
 
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -16,33 +12,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Checkout"></activity>
-        <activity android:name=".AddBuyInfo" />
+        <activity android:name=".EditBuyInfo"></activity>
+        <activity android:name=".BuyInfo" />
+        <activity android:name=".Checkout" />
         <activity android:name=".UpdateClothes" />
         <activity android:name=".DeleteClothes" />
         <activity android:name=".CardDetails" />
         <activity android:name=".MyProfile" />
-        <activity
-            android:name=".AboutMe"
-            android:theme="@style/AppTheme.popUpStyle" />
+        <activity android:name=".AboutMe" android:theme="@style/AppTheme.popUpStyle" />
         <activity android:name=".SignUp" />
         <activity android:name=".Add" />
         <activity android:name=".Login" />
         <activity android:name=".ClothesView" />
         <activity android:name=".AddAccessories" />
-        <activity android:name=".DetailsActivity"
-            android:parentActivityName=".AddAccessories">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".AddAccessories" />
-        </activity>
-        <provider
-            android:name=".ImagesProvider"
-            android:authorities="com.example.surge"
-            android:exported="false" />
         <activity android:name=".AddClothes" />
         <activity android:name=".AccessoryView" />
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

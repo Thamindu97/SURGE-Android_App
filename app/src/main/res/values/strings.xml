@@ -21,7 +21,6 @@
     <string name="textView_card_paycard">Payment Card</string>
     <string name="textView_card_mastervisa">Mastercard/Visa</string>
     <string name="button_buyitnow">Buy It Now</string>
-    <string name="textView_shipmentdetails">Add Shipment Details</string>
     <string name="button_buyinfo_save">Save</string>
     <string name="textView_buyinfo_paymethod">Payment Method</string>
     <string name="button_buyinfo_card">Add Credit/Debit Card</string>
@@ -30,6 +29,22 @@
     <string name="button_card_checkout">Checkout</string>
     <string name="textView_checkout_details">Shipment Details</string>
     <string name="button_checkout_confirmpay">Confirm and Pay</string>
-    <string name="uploadImages">Set your image</string>
-    <string name="action_pic">Pictures</string>
+    <string name="rationale_camera">This app needs access to your camera so you can take pictures.</string>
+    <string name="textView_buyinfo_addshipment">Add Shipment Details</string>
+    <string name="editText_buyinfo_name">Name</string>
+    <string name="editText_buyinfo_phone">Phone</string>
+    <string name="editText_buyinfo_email">Email</string>
+    <string name="editText_buyinfo_address">Address</string>
+    <string name="textView_checkout">Checkout</string>
+    <string name="textView_checkout_carddetails">Card Details</string>
+    <string name="textView_checkout_buyinfo">Shipment Details</string>
+    <string name="button_checkout_delete">Delete</string>
+    <string name="button_checkout_update">Update</string>
+    <string name="button_buyinfo_next">Next</string>
+    <string name="textView_editbuyinfo_editshipment">Edit Shipment Details</string>
+    <string name="editText_editbuyinfo_name">Name</string>
+    <string name="editText_editbuyinfo_phone">Phone</string>
+    <string name="editText_editbuyinfo_email">Email</string>
+    <string name="editText_editbuyinfo_address">Address</string>
+
 </resources>

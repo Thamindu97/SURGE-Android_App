@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="132dp"
         android:background="#C9CCCF"
         android:text="@string/name"
         android:textSize="19sp"
@@ -59,7 +59,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="44dp"
         android:background="#C9CCCF"
         android:text="@string/mobile"
         android:textSize="19sp"
@@ -108,7 +108,7 @@
         android:textColor="@color/colorText"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/imageView_dp"
         app:layout_constraintHorizontal_bias="0.341"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -118,7 +118,7 @@
         android:layout_width="109dp"
         android:layout_height="36dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:background="#C9CCCF"
         android:text="@string/password"
         android:textSize="19sp"
@@ -162,13 +162,34 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="126dp"
-        android:layout_height="109dp"
+        android:id="@+id/imageView_dp"
+        android:layout_width="118dp"
+        android:layout_height="107dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="28dp"
+        android:background="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@drawable/pp" />
+
+    <Button
+        android:id="@+id/btn_upload"
+        android:layout_width="94dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+
+        android:background="@color/colorPrimary"
+        android:text="Upload"
+        android:textColor="#064969"
+        android:textCursorDrawable="@drawable/buttonstyle3"
+        app:layout_constraintBottom_toTopOf="@+id/name2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.901"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_dp"
+        app:layout_constraintVertical_bias="0.2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

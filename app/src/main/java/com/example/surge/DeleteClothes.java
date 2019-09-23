@@ -1,7 +1,5 @@
 package com.example.surge;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,7 +10,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import Database.DBHandler_AddClothes;
+import androidx.appcompat.app.AppCompatActivity;
+
+import Database.DBHandler;
 
 public class DeleteClothes extends AppCompatActivity {
 
@@ -25,15 +25,18 @@ public class DeleteClothes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete_clothes);
 
+        //back
+
         back = (ImageView)findViewById(R.id.button_back2);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it1 = new Intent(DeleteClothes.this,ClothesView.class);
+                Intent it1 = new Intent(DeleteClothes.this, ClothesView.class);
                 startActivity(it1);
             }
         });
+
 
         eClothesDeleteId = findViewById(R.id.edit_clothes_update_id2);
 
@@ -49,7 +52,7 @@ public class DeleteClothes extends AppCompatActivity {
         int onStocksDeleteId = Integer.parseInt(eClothesDeleteId.getText().toString());
 
         //DBHandler object created
-        DBHandler_AddClothes dbhandler = new DBHandler_AddClothes(this);
+        DBHandler dbhandler = new DBHandler(this);
 
         //Toast creation
         Toast t;
@@ -59,6 +62,8 @@ public class DeleteClothes extends AppCompatActivity {
             //Toast message if deletion is successful
             t = Toast.makeText(getApplicationContext(),"Cloth has been deleted from MY ADDS!", Toast.LENGTH_LONG);
             t.show();
+            Intent intent = new Intent(DeleteClothes.this, ClothesView.class);
+            startActivity(intent);
         }
         else{
             //Toast message if insertion fails
