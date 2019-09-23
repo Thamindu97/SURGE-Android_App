@@ -1,5 +1,7 @@
 package com.example.surge;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -9,8 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import Database.DBHandler;
 
@@ -32,7 +32,7 @@ public class DeleteClothes extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it1 = new Intent(DeleteClothes.this, ClothesView.class);
+                Intent it1 = new Intent(DeleteClothes.this,ClothesView.class);
                 startActivity(it1);
             }
         });
@@ -62,7 +62,7 @@ public class DeleteClothes extends AppCompatActivity {
             //Toast message if deletion is successful
             t = Toast.makeText(getApplicationContext(),"Cloth has been deleted from MY ADDS!", Toast.LENGTH_LONG);
             t.show();
-            Intent intent = new Intent(DeleteClothes.this, ClothesView.class);
+            Intent intent = new Intent(DeleteClothes.this,ClothesView.class);
             startActivity(intent);
         }
         else{

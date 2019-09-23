@@ -48,13 +48,16 @@ public class UsersMaster implements BaseColumns {
         public static final String COLUMN4_NAME_ADDRESS = "address";
     }
 
+    //clothes
     public static class Clothes implements BaseColumns {
         public static final String TABLE2_NAME = "Clothes";
         public static final String COLUMN2_NAME_CLOTHTYPE = "cloth_type";
         public static final String COLUMN2_NAME_SIZE = "size";
         public static final String COLUMN2_NAME_COLOUR = "colour";
         public static final String COLUMN2_NAME_PRICE = "price";
+        public static final String COLUMN2_NAME_IMAGE = "image";
     }
+
 
 }
 

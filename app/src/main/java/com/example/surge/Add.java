@@ -1,10 +1,10 @@
 package com.example.surge;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class Add extends AppCompatActivity {
 
@@ -23,6 +23,12 @@ public class Add extends AppCompatActivity {
 
     public void onClickAccessories(View view){
         Intent intent3 = new Intent(this, AddAccessories.class);
+
+        startActivity(intent3);
+    }
+
+    public void onClickBack(View view){
+        Intent intent3 = new Intent(this, MainActivity.class);
 
         startActivity(intent3);
     }

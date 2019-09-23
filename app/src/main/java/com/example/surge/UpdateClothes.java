@@ -37,7 +37,7 @@ public class UpdateClothes extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it1 = new Intent(UpdateClothes.this, ClothesView.class);
+                Intent it1 = new Intent(UpdateClothes.this,ClothesView.class);
                 startActivity(it1);
             }
         });
@@ -88,17 +88,22 @@ public class UpdateClothes extends AppCompatActivity {
         Toast t;
 
         //check if the insertion was successful
-        if(dbhandler.updateStocks(onStocksUpdateId,onStocksUpdatetClothType,onStocksUpdateSize,onStocksUpdateColour,onStocksUpdatePrice)){
-            //Toast message if insertion is successful
-            t = Toast.makeText(getApplicationContext(),"Stocks has been updated successfully!", Toast.LENGTH_LONG);
-            t.show();
-            vibr.vibrate(35);
-        }
-        else{
-            //Toast message if insertion fails
-            t = Toast.makeText(getApplicationContext(),"Stocks failed to be updated!", Toast.LENGTH_LONG);
-            t.show();
-        }
+
+        if(!onStocksUpdatetClothType.equals("") || !onStocksUpdateSize.equals("") || !onStocksUpdateColour.equals("") || !onStocksUpdatePrice.equals("")){
+
+
+                                        if(dbhandler.updateStocks(onStocksUpdateId,onStocksUpdatetClothType,onStocksUpdateSize,onStocksUpdateColour,onStocksUpdatePrice)){
+                                        //Toast message if insertion is successful
+                                        t = Toast.makeText(getApplicationContext(),"Stocks has been updated successfully!", Toast.LENGTH_LONG);
+                                        t.show();
+                                        vibr.vibrate(35);
+                                            }
+                                else{
+                                        //Toast message if insertion fails
+                                            t = Toast.makeText(getApplicationContext(),"Stocks failed to be updated!", Toast.LENGTH_LONG);
+                                            t.show();
+                                    }
+    }
     }
 
     //TextWatcher function

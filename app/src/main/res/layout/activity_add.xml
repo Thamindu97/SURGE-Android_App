@@ -51,6 +51,7 @@
         android:layout_marginEnd="358dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/btnback_ashfaq"
+        android:onClick="onClickBack"
         android:shadowColor="@color/colorText" />
 
 </RelativeLayout>

@@ -18,9 +18,13 @@ import Database.DBHandler;
 
 public class ClothesView extends AppCompatActivity {
 
+
+
     ImageView back;
     DBHandler dbHandler;
     List<Clothes> clothesList;
+
+
     Vibrator vibr;
 
     @Override
@@ -47,14 +51,14 @@ public class ClothesView extends AppCompatActivity {
 
         //List View
 
-        final ListView listView = (ListView)findViewById(R.id.clothes_list_view);
+         ListView listView = (ListView)findViewById(R.id.clothes_list_view);
 
-        dbHandler = new DBHandler(this);
+         dbHandler = new DBHandler(this);
+         clothesList = dbHandler.readAllClothes();
 
-        clothesList = dbHandler.readAllClothes();
-
-        final AddsAdapter stocksAdapter = new AddsAdapter(this, R.layout.adapter_clothes_view,clothesList);
+        final AddsAdapter stocksAdapter = new AddsAdapter(this,R.layout.adapter_clothes_view,clothesList);
         listView.setAdapter(stocksAdapter);
+
 
 
         //click to update
@@ -81,7 +85,7 @@ public class ClothesView extends AppCompatActivity {
 
     public void onClickHome(View view){
 
-        Intent intent = new Intent(ClothesView.this, MainActivity.class);
+        Intent intent = new Intent(ClothesView.this,MainActivity.class);
         startActivity(intent);
     }
 
@@ -90,7 +94,6 @@ public class ClothesView extends AppCompatActivity {
         Intent intent = new Intent(ClothesView.this,DeleteClothes.class);
         startActivity(intent);
     }
-
 
 
 

@@ -461,7 +461,9 @@ public class   DBHandler extends SQLiteOpenHelper {
 
     /////------------------------------------clothes table crud------------------------------------------------/////
 
-    public boolean addClothes(String clothtype, String size,String colour,String price) {
+
+
+    public boolean addClothes(String clothtype, String size, String colour, String price, byte[] image) {
         SQLiteDatabase db = getWritableDatabase();
 
         // Gets the data repository in write mode
@@ -471,6 +473,7 @@ public class   DBHandler extends SQLiteOpenHelper {
         values.put(UsersMaster.Clothes.COLUMN2_NAME_SIZE, size);
         values.put(UsersMaster.Clothes.COLUMN2_NAME_COLOUR, colour);
         values.put(UsersMaster.Clothes.COLUMN2_NAME_PRICE, price);
+        values.put(UsersMaster.Clothes.COLUMN2_NAME_IMAGE, image);
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId = db.insert(UsersMaster.Clothes.TABLE2_NAME, null, values);
@@ -492,7 +495,8 @@ public class   DBHandler extends SQLiteOpenHelper {
                 UsersMaster.Clothes.COLUMN2_NAME_CLOTHTYPE,
                 UsersMaster.Clothes.COLUMN2_NAME_SIZE,
                 UsersMaster.Clothes.COLUMN2_NAME_COLOUR,
-                UsersMaster.Clothes.COLUMN2_NAME_PRICE
+                UsersMaster.Clothes.COLUMN2_NAME_PRICE,
+                UsersMaster.Clothes.COLUMN2_NAME_IMAGE
         };
 
         //database query which returns a cursor object
@@ -517,9 +521,10 @@ public class   DBHandler extends SQLiteOpenHelper {
             String cClothSize = cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.Clothes.COLUMN2_NAME_SIZE));
             String cColour = cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.Clothes.COLUMN2_NAME_COLOUR));
             String cPrice = cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.Clothes.COLUMN2_NAME_PRICE));
+            byte[] cImage = cursor.getBlob(cursor.getColumnIndexOrThrow(UsersMaster.Clothes.COLUMN2_NAME_IMAGE));
 
             //add the retrieved stocks information into the product class using the overloaded constructor
-            Clothes stocks = new Clothes(cId, cClothType, cClothSize, cColour, cPrice);
+            Clothes stocks = new Clothes(cId, cClothType, cClothSize, cColour, cPrice,cImage);
 
             stockList.add(stocks);
         }
@@ -597,5 +602,30 @@ public class   DBHandler extends SQLiteOpenHelper {
             return true;
         }
     }
+
+    //add cloth image
+    public void addUserClothesEntry( String uname, byte[] image) throws SQLiteException {
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues cv = new  ContentValues();
+        cv.put(UsersMaster.Clothes.COLUMN2_NAME_IMAGE,   image);
+
+
+        //Which row to update, based on the title
+        String selection = UsersMaster.Clothes._ID ;
+        String[] selectionArgs = {uname};
+
+
+        db.update(
+                UsersMaster.Clothes.TABLE2_NAME,
+                cv,
+                selection,                   // the columns for the WHERE clause
+                selectionArgs               // the values for the WHERE clause
+        );
+
+
+
+    }
+
 
 }
