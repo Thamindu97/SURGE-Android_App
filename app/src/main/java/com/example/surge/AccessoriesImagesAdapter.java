@@ -16,7 +16,7 @@ import Database.UsersMaster;
 //import android.support.v7.widget.RecyclerView;
 
 
-public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.ImagesViewHolder> {
+public class AccessoriesImagesAdapter extends RecyclerView.Adapter<AccessoriesImagesAdapter.ImagesViewHolder> {
 
     // Class variables for the Cursor that holds task data and the Context
     private Cursor mCursor;
@@ -28,7 +28,7 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.ImagesView
      *
      * @param mContext the current Context
      */
-    public ImagesAdapter(Context mContext) {
+    public AccessoriesImagesAdapter(Context mContext) {
         this.mContext = mContext;
     }
 
