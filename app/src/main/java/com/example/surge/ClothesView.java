@@ -1,16 +1,15 @@
 package com.example.surge;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
@@ -19,9 +18,13 @@ import Database.DBHandler;
 
 public class ClothesView extends AppCompatActivity {
 
+
+
     ImageView back;
     DBHandler dbHandler;
     List<Clothes> clothesList;
+
+
     Vibrator vibr;
 
     @Override
@@ -48,14 +51,14 @@ public class ClothesView extends AppCompatActivity {
 
         //List View
 
-        final ListView listView = (ListView)findViewById(R.id.clothes_list_view);
+         ListView listView = (ListView)findViewById(R.id.clothes_list_view);
 
-        dbHandler = new DBHandler(this);
-
-        clothesList = dbHandler.readAllClothes();
+         dbHandler = new DBHandler(this);
+         clothesList = dbHandler.readAllClothes();
 
         final AddsAdapter stocksAdapter = new AddsAdapter(this,R.layout.adapter_clothes_view,clothesList);
         listView.setAdapter(stocksAdapter);
+
 
 
         //click to update
@@ -91,7 +94,6 @@ public class ClothesView extends AppCompatActivity {
         Intent intent = new Intent(ClothesView.this,DeleteClothes.class);
         startActivity(intent);
     }
-
 
 
 
