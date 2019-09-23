@@ -3,11 +3,15 @@ package com.example.surge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.se.omapi.Session;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.Properties;
 
 import Database.DBHandler;
 
@@ -20,6 +24,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     String userName, email, password, password2 , mobileNo;
     DBHandler db;
     Button signUp;
+
 
 
 
@@ -79,6 +84,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
             else if(db.addRegisterInfo(userName, email, mobileNo, password)){
                 Toast t = Toast.makeText(getApplicationContext(), "You have successfully registered!", Toast.LENGTH_LONG);
                 t.show();
+
             }
             else
             {
@@ -96,4 +102,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     }
 
 
+
 }
+
+
+

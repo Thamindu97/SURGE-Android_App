@@ -119,6 +119,9 @@ public class   DBHandler extends SQLiteOpenHelper {
             return false;
     }
 
+
+
+
     // User  DP image insert
     public void addUserDPEntry( String uname, byte[] image) throws SQLiteException {
         SQLiteDatabase db = getWritableDatabase();
@@ -397,6 +400,7 @@ public class   DBHandler extends SQLiteOpenHelper {
         values.put(UsersMaster.BuyInfo.COLUMN4_NAME_PHONE, phone);
         values.put(UsersMaster.BuyInfo.COLUMN4_NAME_EMAIL, email);
         values.put(UsersMaster.BuyInfo.COLUMN4_NAME_ADDRESS, address);
+
 
         long newRowID = db.insert(UsersMaster.BuyInfo.TABLE4_NAME,null, values);
 

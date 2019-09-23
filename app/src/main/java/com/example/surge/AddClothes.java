@@ -36,7 +36,7 @@ public class AddClothes extends AppCompatActivity {
         colour = findViewById(R.id.txtColour);
         price = findViewById(R.id.txtPrice);
 
-        addcloth=findViewById(R.id.buttonAddforSale);
+        addcloth=findViewById(R.id.buttonlogin);
         
 
         //vibrator sensor

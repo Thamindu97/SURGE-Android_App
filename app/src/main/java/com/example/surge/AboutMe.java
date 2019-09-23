@@ -84,7 +84,7 @@ public class AboutMe extends AppCompatActivity implements EasyPermissions.Permis
 
                     }
 
-                    else if(db.updateCustomerInfo(name, password, phone, email)) {
+                    else if(db.updateCustomerInfo(name, email, phone, password)) {
                         Toast t = Toast.makeText(getApplicationContext(), "User details successfully Updated! ", Toast.LENGTH_LONG);
                         t.show();
                     }
@@ -102,6 +102,10 @@ public class AboutMe extends AppCompatActivity implements EasyPermissions.Permis
                 name = txt_Name.getText().toString();
                 if(!name.equals("")){
                     db.deleteCustomerInfo(name);
+                    Toast t = Toast.makeText(getApplicationContext(), "User account has succesfully deleted! ", Toast.LENGTH_LONG);
+                    t.show();
+                    MainActivity mn = new MainActivity();
+                    mn.userName = "";
                 }
             }
         });
@@ -146,7 +150,9 @@ public class AboutMe extends AppCompatActivity implements EasyPermissions.Permis
     }
     @Override
     public void onPermissionsGranted(int requestCode, List<String> perms) {
-        MainActivity mn = new MainActivity();
+
+        Log.d(TAG, "onPermissionsGranted:" + requestCode + ":" + perms.size());
+        /*MainActivity mn = new MainActivity();
         Log.d(TAG, "Permission has been granted");
         Intent imageReturnedIntent = new Intent();
         Uri selectedImage = imageReturnedIntent.getData();
@@ -160,16 +166,20 @@ public class AboutMe extends AppCompatActivity implements EasyPermissions.Permis
         String filePath = cursor.getString(columnIndex);
         cursor.close();
 
-        try{
-            yourSelectedImage = BitmapFactory.decodeStream(getContentResolver().openInputStream(selectedImage));
-        } catch(IOException ie) {
 
-        }
+        try {
+            yourSelectedImage = BitmapFactory.decodeStream(getContentResolver().openInputStream(selectedImage));
+        } catch (IOException ie) {
+                        }
+
 
         db.addUserDPEntry(mn.userName, DbBitmapUtility.getBytes(yourSelectedImage));
 
-        imageView.setImageBitmap(DbBitmapUtility.getImage( db.retrieveDP(mn.userName)));
+        imageView.setImageBitmap(DbBitmapUtility.getImage(db.retrieveDP(mn.userName)));*/
+
+
     }
+
 
     @Override
     public void onPermissionsDenied(int requestCode, List<String> perms) {

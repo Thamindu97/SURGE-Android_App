@@ -3,6 +3,7 @@ package com.example.surge;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,13 +11,29 @@ public class MainActivity extends AppCompatActivity {
 
     public static String userName = "";
     public static String clothID = "";
+    Button login, logout, aboutMe;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        login = (Button) findViewById(R.id.buttonlogin);
+        aboutMe = (Button) findViewById(R.id.buttonAboutMe);
 
+        // hides login button when logged in
+        if(userName != "") {
+            login.setVisibility(View.GONE);
+            aboutMe.setVisibility(View.VISIBLE);
+        }
+
+        // hides aboutMe button when logged out or removed user's account
+        if(userName == "")
+        {
+            aboutMe.setVisibility(View.GONE);
+            login.setVisibility(View.VISIBLE);
+        }
 
     }
 
