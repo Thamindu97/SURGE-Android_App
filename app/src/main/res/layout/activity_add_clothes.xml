@@ -81,7 +81,7 @@
         android:background="@drawable/borders2_a"
         android:ems="10"
         android:hint="ex:T-Shirt"
-        android:inputType="textPersonName" />
+        android:inputType="text" />
 
 
     <EditText
@@ -101,21 +101,7 @@
         android:visibility="visible"
         tools:visibility="visible" />
 
-    <EditText
-        android:id="@+id/txtPrice"
-        android:layout_width="171dp"
-        android:layout_height="41dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="191dp"
-        android:layout_marginTop="457dp"
-        android:layout_marginEnd="49dp"
-        android:alpha="0.7"
-        android:background="@drawable/borders2_a"
-        android:ems="10"
-        android:hint="ex:100"
-        android:inputType="phone" />
+
 
     <EditText
         android:id="@+id/txtSize"
@@ -132,6 +118,22 @@
         android:ems="10"
         android:hint="ex:L"
         android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/txtPrice"
+        android:layout_width="171dp"
+        android:layout_height="41dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="191dp"
+        android:layout_marginTop="457dp"
+        android:layout_marginEnd="49dp"
+        android:alpha="0.7"
+        android:background="@drawable/borders2_a"
+        android:ems="10"
+        android:hint="ex:100"
+        android:inputType="phone" />
 
     <ImageView
         android:id="@+id/imageViewCloth"

@@ -89,10 +89,12 @@ public class   DBHandler extends SQLiteOpenHelper {
                         UsersMaster.Clothes.COLUMN2_NAME_CLOTHTYPE + " TEXT," +
                         UsersMaster.Clothes.COLUMN2_NAME_SIZE + " TEXT," +
                         UsersMaster.Clothes.COLUMN2_NAME_COLOUR + " TEXT," +
-                        UsersMaster.Clothes.COLUMN2_NAME_PRICE + " TEXT)";
+                        UsersMaster.Clothes.COLUMN2_NAME_PRICE + " TEXT," +
+                        UsersMaster.Clothes.COLUMN2_NAME_IMAGE + " BLOB)";
         //Specify the primary key from the BaseColumns interface.
 
         db.execSQL(SQL_CREATE_Clothes);
+
 
 
     }
