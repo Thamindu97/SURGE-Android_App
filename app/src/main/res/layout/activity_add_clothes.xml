@@ -69,6 +69,7 @@
 
     <EditText
         android:id="@+id/txtClothtype"
+        android:inputType="text"
         android:layout_width="wrap_content"
         android:layout_height="43dp"
         android:layout_alignParentStart="true"
@@ -80,8 +81,7 @@
         android:alpha="0.7"
         android:background="@drawable/borders2_a"
         android:ems="10"
-        android:hint="ex:T-Shirt"
-        android:inputType="text" />
+        android:hint="ex:T-Shirt" />
 
 
     <EditText
