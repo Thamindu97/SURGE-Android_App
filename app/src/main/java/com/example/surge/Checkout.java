@@ -30,6 +30,8 @@ public class Checkout extends AppCompatActivity {
             public void onClick(View v) {
                 db.deleteCardDetails();
                 Toast.makeText(Checkout.this,"Card Details Deleted Successfully", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Checkout.this, CardDetails.class);
+                startActivity(intent);
             }
         });
     }
