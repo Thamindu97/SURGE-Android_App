@@ -27,6 +27,16 @@
         <activity android:name=".AddAccessories" />
         <activity android:name=".AddClothes" />
         <activity android:name=".AccessoryView" />
+        <activity android:name=".DetailsActivity"
+            android:parentActivityName=".AddAccessories">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AddAccessories" />
+        </activity>
+        <provider
+            android:name=".ImagesProvider"
+            android:authorities="com.example.surge"
+            android:exported="false" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

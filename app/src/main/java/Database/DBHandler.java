@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.surge.AboutMe;
+import com.example.surge.Accessories;
 import com.example.surge.BuyInfo;
 import com.example.surge.Clothes;
 import com.example.surge.DbBitmapUtility;
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class   DBHandler extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "Surge.db";
+    public static final String DATABASE_NAME = "Surge2019.db";
 
     public static String usname;
 
@@ -59,11 +60,13 @@ public class   DBHandler extends SQLiteOpenHelper {
 
         //Creating Accessories table =
         String SQL_CREATE_ACCESSORIES =
-                "CREATE TABLE " + UsersMaster.Accessories.TABLE_NAME + " (" + UsersMaster.Accessories._ID + " INTEGER PRIMARY KEY," +
+                "CREATE TABLE " + UsersMaster.Accessories.TABLE_NAME + " (" +
+                        UsersMaster.Accessories._ID + " INTEGER PRIMARY KEY," +
                         UsersMaster.Accessories.COLUMN_NAME_TYPE + " TEXT," +
                         UsersMaster.Accessories.COLUMN_NAME_SIZE + " TEXT," +
                         UsersMaster.Accessories.COLUMN_NAME_COLOUR + " TEXT," +
-                        UsersMaster.Accessories.COLUMN_NAME_PRICE + " TEXT)";
+                        UsersMaster.Accessories.COLUMN_NAME_PRICE + " TEXT," +
+                        UsersMaster.Accessories.COLUMN_NAME_IMAGE + " BLOB NOT NULL " + " );";
 
         db.execSQL(SQL_CREATE_ACCESSORIES);
 
@@ -189,7 +192,7 @@ public class   DBHandler extends SQLiteOpenHelper {
 
     //ACCESSORIES - START
 
-    public boolean addAccessory(String ascType, String ascSize, String ascColour, String ascPrice) {
+    public boolean addAccessory(String ascType, String ascSize, String ascColour, String ascPrice, byte[] image) {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -197,6 +200,7 @@ public class   DBHandler extends SQLiteOpenHelper {
         values.put(UsersMaster.Accessories.COLUMN_NAME_SIZE, ascSize);
         values.put(UsersMaster.Accessories.COLUMN_NAME_COLOUR, ascColour);
         values.put(UsersMaster.Accessories.COLUMN_NAME_PRICE, ascPrice);
+        values.put(UsersMaster.Accessories.COLUMN_NAME_IMAGE, image);
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId = db.insert(UsersMaster.Accessories.TABLE_NAME, null, values);
@@ -235,6 +239,53 @@ public class   DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from "+UsersMaster.Accessories.TABLE_NAME,null);
         return res;
+    }
+
+    public List readAllAccessories(){
+
+        //get a readable mode of the db
+        SQLiteDatabase db = getReadableDatabase();
+
+        //projection
+        String[] projection = {UsersMaster.Accessories._ID,
+                UsersMaster.Accessories.COLUMN_NAME_TYPE,
+                UsersMaster.Accessories.COLUMN_NAME_SIZE,
+                UsersMaster.Accessories.COLUMN_NAME_COLOUR,
+                UsersMaster.Accessories.COLUMN_NAME_PRICE
+        };
+
+        //database query which returns a cursor object
+        Cursor cursor = db.query(
+                UsersMaster.Accessories.TABLE_NAME,
+                projection,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+
+        //list declarations
+        List<Accessories> AccessList = new ArrayList<>();
+
+        while(cursor.moveToNext()){
+
+            int acsId = cursor.getInt(cursor.getColumnIndexOrThrow(UsersMaster.Accessories._ID));
+            String acsType = cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.Accessories.COLUMN_NAME_TYPE));
+            String acsSize = cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.Accessories.COLUMN_NAME_SIZE));
+            String acsColour = cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.Accessories.COLUMN_NAME_COLOUR));
+            String acsPrice = cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.Accessories.COLUMN_NAME_PRICE));
+
+            //add the retrieved stocks information into the product class using the overloaded constructor
+            Accessories acs = new Accessories(acsId, acsType, acsSize, acsColour, acsPrice);
+
+            AccessList.add(acs);
+        }
+
+        cursor.close();
+
+        return AccessList;
     }
 
     //ACCESSORIES - END

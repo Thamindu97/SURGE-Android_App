@@ -36,6 +36,7 @@ public class UsersMaster implements BaseColumns {
         public static final String COLUMN_NAME_SIZE = "size";
         public static final String COLUMN_NAME_COLOUR = "colour";
         public static final String COLUMN_NAME_PRICE = "price";
+        public static final String COLUMN_NAME_IMAGE= "image";
     }
 
     // Buy Info Table
