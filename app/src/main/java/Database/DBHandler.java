@@ -23,7 +23,7 @@ public class   DBHandler extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "Surge2019.db";
 
-    public static String usname;
+    public static String usname, cname;
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -290,6 +290,8 @@ public class   DBHandler extends SQLiteOpenHelper {
 
     //ACCESSORIES - END
 
+    // ********************* CARD DETAILS *********************
+
     //INSERT CARD DETAILS
 
     public boolean addCardDetails(String name, String cardno, String date, String cvv) {
@@ -301,6 +303,8 @@ public class   DBHandler extends SQLiteOpenHelper {
         values.put(UsersMaster.CardDetails.COLUMN3_NAME_EXDATE, date);
         values.put(UsersMaster.CardDetails.COLUMN3_NAME_CVV, cvv);
 
+        cname = name;
+
         long newRowID = db.insert(UsersMaster.CardDetails.TABLE3_NAME, null, values);
 
         if (newRowID >= 1)
@@ -308,6 +312,20 @@ public class   DBHandler extends SQLiteOpenHelper {
         else
             return false;
     }
+
+    //DELETE CARD DETAILS
+
+    public void deleteCardDetails()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+
+        String selection = UsersMaster.CardDetails.COLUMN3_NAME_USERNAME + " LIKE ?";
+        String[] selectionArgs = {cname};
+
+        db.delete(UsersMaster.CardDetails.TABLE3_NAME,selection,selectionArgs);
+    }
+
+    // ********************* END OF CARD DETAILS *********************
 
     // take the details of logged in user
     public void readLoggedUserInfo(String uName)
