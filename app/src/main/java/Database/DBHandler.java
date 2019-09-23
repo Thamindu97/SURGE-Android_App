@@ -22,6 +22,8 @@ public class   DBHandler extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "Surge.db";
 
+    public static String usname;
+
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
@@ -402,6 +404,10 @@ public class   DBHandler extends SQLiteOpenHelper {
         values.put(UsersMaster.BuyInfo.COLUMN4_NAME_EMAIL, email);
         values.put(UsersMaster.BuyInfo.COLUMN4_NAME_ADDRESS, address);
 
+        //String usname;
+
+        usname = name;
+
         long newRowID = db.insert(UsersMaster.BuyInfo.TABLE4_NAME,null, values);
 
         if (newRowID >= 1)
@@ -413,7 +419,7 @@ public class   DBHandler extends SQLiteOpenHelper {
 
     //RETRIEVE BUY INFO
 
-    public void showBuyInfo(String uname)
+    public void showBuyInfo()
     {
         SQLiteDatabase db = getReadableDatabase();
 
@@ -422,11 +428,11 @@ public class   DBHandler extends SQLiteOpenHelper {
                 UsersMaster.BuyInfo.COLUMN4_NAME_USERNAME,
                 UsersMaster.BuyInfo.COLUMN4_NAME_PHONE,
                 UsersMaster.BuyInfo.COLUMN4_NAME_EMAIL,
-                UsersMaster.BuyInfo.COLUMN4_NAME_ADDRESS,
+                UsersMaster.BuyInfo.COLUMN4_NAME_ADDRESS
         };
 
         String selection = UsersMaster.BuyInfo.COLUMN4_NAME_USERNAME + " = ?" ;
-        String[] selectionArgs = {uname};
+        String[] selectionArgs = {usname};
 
 
 
@@ -449,6 +455,8 @@ public class   DBHandler extends SQLiteOpenHelper {
         }
 
     }
+
+    // ********************* END OF BUY INFO *********************
 
     /////------------------------------------clothes table crud------------------------------------------------/////
 

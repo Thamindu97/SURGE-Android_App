@@ -12,9 +12,6 @@ import android.widget.Toast;
 import Database.DBHandler;
 
 public class BuyInfo extends AppCompatActivity {
-
-    String uname;
-
     EditText name, phone, email, address;
 
     Button save;
@@ -50,7 +47,7 @@ public class BuyInfo extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                uname = name.getText().toString();
+
                 boolean isInserted = db.addBuyInfo(name.getText().toString(),
                         phone.getText().toString(),email.getText().toString(),address.getText().toString());
 

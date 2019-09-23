@@ -10,8 +10,6 @@ import Database.DBHandler;
 
 public class EditBuyInfo extends AppCompatActivity {
 
-    //String uname;
-
     public static EditText name, phone, email, address;
 
     //Button save;
@@ -35,7 +33,6 @@ public class EditBuyInfo extends AppCompatActivity {
 
     public void showBuyData()
     {
-        BuyInfo buyInfo = new BuyInfo();
-        db.showBuyInfo(buyInfo.uname);
+        db.showBuyInfo();
     }
 }

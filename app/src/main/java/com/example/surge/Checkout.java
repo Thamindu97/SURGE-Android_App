@@ -8,8 +8,6 @@ import android.view.View;
 
 public class Checkout extends AppCompatActivity {
 
-    public static String uname = "";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,9 +16,7 @@ public class Checkout extends AppCompatActivity {
 
     public void onClickUpdate(View view)
     {
-        if(!uname.equals("")) {
             Intent intent = new Intent(this, EditBuyInfo.class);
             startActivity(intent);
-        }
     }
 }
