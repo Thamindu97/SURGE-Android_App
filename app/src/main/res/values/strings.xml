@@ -49,5 +49,11 @@
     <string name="uploadImages">Set your image</string>
     <string name="action_pic">Pictures</string>
     <string name="button_editbuyinfo_save">Save</string>
+    <string name="item1Description">Men\'s Dark Green T-shirt</string>
+    <string name="item2Description">Men\'s Grey T-shirt</string>
+    <string name="item3Description">Men\'s Blue Dual Tone T-shirt</string>
+    <string name="item4Description">Men\'s shoes</string>
+    <string name="item5Description">Men\'s Silver Watch</string>
+    <string name="item6Description">Men\'s Black Belt</string>
 
 </resources>
