@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
@@ -14,13 +13,12 @@ import android.widget.ListView;
 
 import java.util.List;
 
-import Database.DBHandler;
-
+import Database.DBHandler_AddClothes;
 
 public class ClothesView extends AppCompatActivity {
 
     ImageView back;
-    DBHandler dbHandler;
+    DBHandler_AddClothes dbHandler;
     List<Clothes> clothesList;
     Vibrator vibr;
 
@@ -28,8 +26,6 @@ public class ClothesView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clothes_view);
-
-        //back buuton
 
         back = (ImageView)findViewById(R.id.button_back);
 
@@ -41,16 +37,12 @@ public class ClothesView extends AppCompatActivity {
             }
         });
 
-        //vibrator sensor
+
         vibr = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-
-
-
-        //List View
 
         final ListView listView = (ListView)findViewById(R.id.clothes_list_view);
 
-        dbHandler = new DBHandler(this);
+        dbHandler = new DBHandler_AddClothes(this);
 
         clothesList = dbHandler.readAllClothes();
 
@@ -58,20 +50,15 @@ public class ClothesView extends AppCompatActivity {
         listView.setAdapter(stocksAdapter);
 
 
-        //click to update
+        //click to update and delete
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
 
                 Intent intent = new Intent(ClothesView.this, UpdateClothes.class);
-
-                intent.putExtra("ID", String.valueOf(id));
                 startActivity(intent);
-
-
-
                 vibr.vibrate(28);
             }
         });

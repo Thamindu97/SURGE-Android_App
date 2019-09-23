@@ -7,78 +7,23 @@
     tools:context=".Checkout">
 
     <TextView
-        android:id="@+id/textView_checkout"
+        android:id="@+id/textView_checkout_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/textView_checkout"
+        android:text="@string/textView_checkout_details"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button_checkout_confirmpay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView_checkout_buyinfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/textView_checkout_buyinfo"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_checkout" />
-
-    <TextView
-        android:id="@+id/textView_checkout_carddetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/textView_checkout_carddetails"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_checkout_buyinfo" />
-
-    <Button
-        android:id="@+id/button_checkout_update"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:onClick="onClickUpdate"
-        android:text="@string/button_checkout_update"
-        app:layout_constraintBottom_toBottomOf="@+id/textView_checkout_buyinfo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView_checkout_buyinfo"
-        app:layout_constraintTop_toTopOf="@+id/textView_checkout_buyinfo"
-        app:layout_constraintVertical_bias="0.458" />
-
-    <Button
-        android:id="@+id/button_checkout_delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/button_checkout_delete"
-        app:layout_constraintBottom_toBottomOf="@+id/textView_checkout_carddetails"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView_checkout_carddetails"
-        app:layout_constraintTop_toTopOf="@+id/textView_checkout_carddetails"
-        app:layout_constraintVertical_bias="0.458" />
+        app:layout_constraintVertical_bias="0.012" />
 
     <Button
         android:id="@+id/button_checkout_confirmpay"
@@ -86,9 +31,33 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="onClickConfirm"
         android:text="@string/button_checkout_confirmpay"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="400dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_checkout_confirmpay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_checkout_details" >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_shipmentdetails"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scrollbars="horizontal" />
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

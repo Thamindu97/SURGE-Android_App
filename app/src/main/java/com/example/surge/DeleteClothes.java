@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import Database.DBHandler;
+import Database.DBHandler_AddClothes;
 
 public class DeleteClothes extends AppCompatActivity {
 
@@ -25,8 +25,6 @@ public class DeleteClothes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete_clothes);
 
-        //back
-
         back = (ImageView)findViewById(R.id.button_back2);
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -36,7 +34,6 @@ public class DeleteClothes extends AppCompatActivity {
                 startActivity(it1);
             }
         });
-
 
         eClothesDeleteId = findViewById(R.id.edit_clothes_update_id2);
 
@@ -52,7 +49,7 @@ public class DeleteClothes extends AppCompatActivity {
         int onStocksDeleteId = Integer.parseInt(eClothesDeleteId.getText().toString());
 
         //DBHandler object created
-        DBHandler dbhandler = new DBHandler(this);
+        DBHandler_AddClothes dbhandler = new DBHandler_AddClothes(this);
 
         //Toast creation
         Toast t;
@@ -62,8 +59,6 @@ public class DeleteClothes extends AppCompatActivity {
             //Toast message if deletion is successful
             t = Toast.makeText(getApplicationContext(),"Cloth has been deleted from MY ADDS!", Toast.LENGTH_LONG);
             t.show();
-            Intent intent = new Intent(DeleteClothes.this,ClothesView.class);
-            startActivity(intent);
         }
         else{
             //Toast message if insertion fails

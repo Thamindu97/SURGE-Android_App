@@ -24,7 +24,7 @@
         tools:layout_editor_absoluteY="5dp" />
 
     <Button
-        android:id="@+id/buttonlogin"
+        android:id="@+id/buttonSignUp"
         android:layout_width="103dp"
         android:layout_height="49dp"
         android:layout_alignParentStart="true"
@@ -36,7 +36,6 @@
         android:alpha="0.9"
 
         android:background="@drawable/borders_ashfaq"
-        android:onClick="onClick"
         android:text="Add For Sale"
         android:textColor="@color/colorPrimaryDark" />
 
@@ -150,11 +149,10 @@
         android:layout_marginTop="462dp"
         android:layout_marginEnd="262dp"
         android:alpha="0.8"
-        android:inputType="number"
         android:background="@drawable/borders_ashfaq"
         android:gravity="center"
         android:text="Price :"
-
+        android:inputType="number"
         android:textColor="@color/colorText"
         android:textSize="20sp" />
 

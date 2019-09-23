@@ -9,13 +9,12 @@ public class UsersMaster implements BaseColumns {
     }
 
     // UserTable
-    public static final String TABLE1_NAME = "UserDetailsTable" ;
+    public static final String TABLE1_NAME = "UserTable" ;
     public static final String COLUMN1_NAME_USERNAME = "name";
     public static final String COLUMN1_NAME_PASSWORD = "password";
     public static final String COLUMN1_NAME_EMAIL = "email";
     public static final String COLUMN1_NAME_MOBILENO = "mobileno";
-    public static final String COLUMN1_NAME_IMAGE = "image";
-
+    // public static final String COLUMN1_NAME_ADDRESS = "address";
 
 
     // Card Details Table
@@ -36,25 +35,15 @@ public class UsersMaster implements BaseColumns {
         public static final String COLUMN_NAME_SIZE = "size";
         public static final String COLUMN_NAME_COLOUR = "colour";
         public static final String COLUMN_NAME_PRICE = "price";
+        public static final String COLUMN_NAME_IMAGE= "image";
     }
 
-    // Buy Info Table
-    public static class BuyInfo implements BaseColumns {
-
-        public static final String TABLE4_NAME = "buyinfo";
-        public static final String COLUMN4_NAME_USERNAME = "name";
-        public static final String COLUMN4_NAME_PHONE = "phone";
-        public static final String COLUMN4_NAME_EMAIL = "email";
-        public static final String COLUMN4_NAME_ADDRESS = "address";
-    }
-
-    public static class Clothes implements BaseColumns {
-        public static final String TABLE2_NAME = "Clothes";
-        public static final String COLUMN2_NAME_CLOTHTYPE = "cloth_type";
-        public static final String COLUMN2_NAME_SIZE = "size";
-        public static final String COLUMN2_NAME_COLOUR = "colour";
-        public static final String COLUMN2_NAME_PRICE = "price";
-    }
+    //Image Table
+//    public static class Images1 implements BaseColumns {
+//
+//        public static final String TABLE_NAME = "Images";
+//        public static final String COLUMN_NAME= "imagename";
+//    }
 
 }
 

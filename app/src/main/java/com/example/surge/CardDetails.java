@@ -15,6 +15,7 @@ public class CardDetails extends AppCompatActivity {
     EditText name, cardno, date, cvv;
 
     Button save;
+    Button checkout;
 
     DBHandler db;
 
@@ -31,6 +32,7 @@ public class CardDetails extends AppCompatActivity {
         cvv = findViewById(R.id.editText_card_cvv);
 
         save = findViewById(R.id.button_card_save);
+        checkout = findViewById(R.id.button_card_checkout);
 
         addCardData();
     }
@@ -56,8 +58,8 @@ public class CardDetails extends AppCompatActivity {
         });
     }
 
-    public void onClickCheckout(View View)
-    {
+    public void onClickCheckout(View view) {
+
         Intent intent = new Intent(this, Checkout.class);
         startActivity(intent);
     }
