@@ -55,4 +55,10 @@ public class CardDetails extends AppCompatActivity {
             }
         });
     }
+
+    public void onClickCheckout(View View)
+    {
+        Intent intent = new Intent(this, Checkout.class);
+        startActivity(intent);
+    }
 }

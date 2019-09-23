@@ -8,8 +8,10 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.surge.AboutMe;
+import com.example.surge.BuyInfo;
 import com.example.surge.Clothes;
 import com.example.surge.DbBitmapUtility;
+import com.example.surge.EditBuyInfo;
 import com.example.surge.MainActivity;
 
 import java.util.ArrayList;
@@ -19,6 +21,8 @@ import java.util.List;
 public class   DBHandler extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "Surge.db";
+
+    public static String usname;
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -118,9 +122,6 @@ public class   DBHandler extends SQLiteOpenHelper {
         else
             return false;
     }
-
-
-
 
     // User  DP image insert
     public void addUserDPEntry( String uname, byte[] image) throws SQLiteException {
@@ -390,6 +391,8 @@ public class   DBHandler extends SQLiteOpenHelper {
 
     }
 
+    // ********************* BUY INFO *********************
+
     //INSERT BUY INFO
 
     public boolean addBuyInfo(String name, String phone, String email, String address) {
@@ -401,6 +404,9 @@ public class   DBHandler extends SQLiteOpenHelper {
         values.put(UsersMaster.BuyInfo.COLUMN4_NAME_EMAIL, email);
         values.put(UsersMaster.BuyInfo.COLUMN4_NAME_ADDRESS, address);
 
+        //String usname;
+
+        usname = name;
 
         long newRowID = db.insert(UsersMaster.BuyInfo.TABLE4_NAME,null, values);
 
@@ -410,6 +416,47 @@ public class   DBHandler extends SQLiteOpenHelper {
             return false;
 
     }
+
+    //RETRIEVE BUY INFO
+
+    public void showBuyInfo()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+
+        String[] projection = {
+                UsersMaster.BuyInfo._ID,
+                UsersMaster.BuyInfo.COLUMN4_NAME_USERNAME,
+                UsersMaster.BuyInfo.COLUMN4_NAME_PHONE,
+                UsersMaster.BuyInfo.COLUMN4_NAME_EMAIL,
+                UsersMaster.BuyInfo.COLUMN4_NAME_ADDRESS
+        };
+
+        String selection = UsersMaster.BuyInfo.COLUMN4_NAME_USERNAME + " = ?" ;
+        String[] selectionArgs = {usname};
+
+
+
+        Cursor cursor = db.query(
+                UsersMaster.BuyInfo.TABLE4_NAME,           // the table to query
+                projection,                 // the columns to return
+                selection,               // the columns for the WHERE clause
+                selectionArgs,            // the values for the WHERE clause
+                null,               // don't group the rows
+                null,                // don't filter by row groups
+                null                  // the sort order
+        );
+
+        while(cursor.moveToNext()) {
+            EditBuyInfo editBuyInfo = new EditBuyInfo();
+            editBuyInfo.name.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.BuyInfo.COLUMN4_NAME_USERNAME)));
+            editBuyInfo.phone.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.BuyInfo.COLUMN4_NAME_PHONE)));
+            editBuyInfo.email.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.BuyInfo.COLUMN4_NAME_EMAIL)));
+            editBuyInfo.address.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.BuyInfo.COLUMN4_NAME_ADDRESS)));
+        }
+
+    }
+
+    // ********************* END OF BUY INFO *********************
 
     /////------------------------------------clothes table crud------------------------------------------------/////
 
