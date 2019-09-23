@@ -20,7 +20,7 @@
     <string name="buttonDelete">Delete </string>
     <string name="textView_card_paycard">Payment Card</string>
     <string name="textView_card_mastervisa">Mastercard/Visa</string>
-    <string name="button_buyitnow">Buy It Now</string>
+    <string name="button_buyitnow">Buy Now</string>
     <string name="button_buyinfo_save">Save</string>
     <string name="textView_buyinfo_paymethod">Payment Method</string>
     <string name="button_buyinfo_card">Add Credit/Debit Card</string>
