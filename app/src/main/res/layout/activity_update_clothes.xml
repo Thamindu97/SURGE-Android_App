@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="0.13"
-        android:background="@color/colorPrimaryDark">
+        android:background="@drawable/bavk">
 
         <Button
             android:id="@+id/button_clothes_update_update"
@@ -137,9 +137,9 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="65dp"
-            android:layout_marginTop="466dp"
-            android:layout_marginEnd="292dp"
+            android:layout_marginStart="54dp"
+            android:layout_marginTop="465dp"
+            android:layout_marginEnd="303dp"
             android:text="@string/Update5"
             android:textColor="@color/colorAccent"
             android:textSize="24sp" />

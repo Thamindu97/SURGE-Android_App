@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pic5_a"
+    android:background="@drawable/bavk"
     tools:context=".AddClothes">
 
 
@@ -40,6 +40,50 @@
         android:text="Add For Sale"
         android:textColor="@color/colorPrimaryDark" />
 
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="356dp"
+        android:background="@drawable/list1_a"
+        android:onClick="onClickList" />
+
+    <Button
+        android:id="@+id/pick_image"
+        android:layout_width="90dp"
+        android:layout_height="35dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="159dp"
+        android:layout_marginTop="187dp"
+        android:layout_marginEnd="162dp"
+        android:background="@drawable/borders_ashfaq"
+        android:onClick="onClickPickImage"
+        android:text="Pick Image" />
+
+    <EditText
+        android:id="@+id/txtClothtype"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="193dp"
+        android:layout_marginTop="281dp"
+        android:layout_marginEnd="36dp"
+        android:alpha="0.7"
+        android:background="@drawable/borders2_a"
+        android:ems="10"
+        android:hint="ex:T-Shirt"
+        android:inputType="textPersonName" />
+
+
     <EditText
         android:id="@+id/txtColour"
         android:layout_width="169dp"
@@ -71,23 +115,7 @@
         android:background="@drawable/borders2_a"
         android:ems="10"
         android:hint="ex:100"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/txtClothtype"
-        android:layout_width="wrap_content"
-        android:layout_height="43dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="193dp"
-        android:layout_marginTop="281dp"
-        android:layout_marginEnd="36dp"
-        android:alpha="0.7"
-        android:background="@drawable/borders2_a"
-        android:ems="10"
-        android:hint="ex:T-Shirt"
-        android:inputType="textPersonName" />
+        android:inputType="phone" />
 
     <EditText
         android:id="@+id/txtSize"
@@ -104,6 +132,18 @@
         android:ems="10"
         android:hint="ex:L"
         android:inputType="textPersonName" />
+
+    <ImageView
+        android:id="@+id/imageViewCloth"
+        android:layout_width="106dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="154dp"
+        android:background="@drawable/tshirt1_a" />
 
     <TextView
         android:id="@+id/textView3"
@@ -153,6 +193,7 @@
         android:inputType="number"
         android:background="@drawable/borders_ashfaq"
         android:gravity="center"
+        android:inputType="number"
         android:text="Price :"
 
         android:textColor="@color/colorText"

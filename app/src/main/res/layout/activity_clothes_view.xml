@@ -131,6 +131,16 @@
             android:text="Price"
             android:textColor="@color/colorText"
             android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/stocks_view_col_image"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="Image"
+            android:textColor="@color/colorText"
+            android:textSize="18sp" />
     </LinearLayout>
 
 
@@ -139,9 +149,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="0.13"
-        android:background="@drawable/surge"
+        android:background="@drawable/bavk"
         android:cacheColorHint="@color/colorHeader"
         android:divider="@color/colorHeader" />
+
+    /*
+
+
+    */
 
 
 </LinearLayout>
