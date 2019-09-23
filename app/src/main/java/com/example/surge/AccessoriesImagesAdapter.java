@@ -13,8 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import Database.UsersMaster;
 
-public class ImagesAdapter extends  RecyclerView.Adapter<ImagesAdapter.ImagesViewHolder>  {
+//import android.support.v7.widget.RecyclerView;
 
+
+public class AccessoriesImagesAdapter extends RecyclerView.Adapter<AccessoriesImagesAdapter.ImagesViewHolder> {
 
     // Class variables for the Cursor that holds task data and the Context
     private Cursor mCursor;
@@ -26,7 +28,7 @@ public class ImagesAdapter extends  RecyclerView.Adapter<ImagesAdapter.ImagesVie
      *
      * @param mContext the current Context
      */
-    public ImagesAdapter(Context mContext) {
+    public AccessoriesImagesAdapter(Context mContext) {
         this.mContext = mContext;
     }
 
@@ -44,18 +46,18 @@ public class ImagesAdapter extends  RecyclerView.Adapter<ImagesAdapter.ImagesVie
 
         // Indices for the _id, description, and priority columns
         //int idIndex = mCursor.getColumnIndex(_ID);
-        int fragranceName = mCursor.getColumnIndex(UsersMaster.Clothes.COLUMN2_NAME_IMAGE);
+        int fragranceName = mCursor.getColumnIndex(UsersMaster.Accessories.COLUMN_NAME_IMAGE);
 
 
 
         mCursor.moveToPosition(position); // get to the right location in the cursor
 
         // Determine the values of the wanted data
-        // final int id = mCursor.getInt(idIndex);
+       // final int id = mCursor.getInt(idIndex);
         byte[] image = mCursor.getBlob(fragranceName);
 
         //Set values
-        // holder.itemView.setTag(id);
+       // holder.itemView.setTag(id);
 
         Bitmap bmp = BitmapFactory.decodeByteArray(image, 0, image.length);
         holder.image.setImageBitmap(Bitmap.createScaledBitmap(bmp, 200,
@@ -98,3 +100,4 @@ public class ImagesAdapter extends  RecyclerView.Adapter<ImagesAdapter.ImagesVie
 
     }
 }
+

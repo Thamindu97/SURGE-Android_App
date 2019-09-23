@@ -16,9 +16,13 @@ import Database.UsersMaster;
 
 import static android.provider.BaseColumns._ID;
 
-public class ImagesProvider extends ContentProvider {
+//import android.support.annotation.NonNull;
+//import android.support.annotation.Nullable;
 
-    public static final String LOG_TAG = ImagesProvider.class.getSimpleName();
+
+public class AccessoriesImagesProvider extends ContentProvider {
+
+    public static final String LOG_TAG = AccessoriesImagesProvider.class.getSimpleName();
 
     /** URI matcher code for the content URI for the pictures table */
     private static final int PICTURES = 100;
@@ -32,14 +36,13 @@ public class ImagesProvider extends ContentProvider {
      * content authority is the package name for the app, which is guaranteed to be unique on the
      * device.
      */
-    public static final String CONTENT_AUTHORITY = "com.delaroystudios.imagecamerabitmap";
+    public static final String CONTENT_AUTHORITY = "com.example.surge";
 
     /**
      * Use CONTENT_AUTHORITY to create the base of all URI's which apps will use to contact
      * the content provider.
      */
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
-
 
     public static final String PATH_IMAGES = "image-path";
 
@@ -88,7 +91,7 @@ public class ImagesProvider extends ContentProvider {
         switch (match) {
             case PICTURES:
 
-                cursor = database.query(UsersMaster.Clothes.TABLE2_NAME, projection, selection, selectionArgs,
+                cursor = database.query(UsersMaster.Accessories.TABLE_NAME, projection, selection, selectionArgs,
                         null, null, sortOrder);
                 break;
             case PICTURES_ID:
@@ -96,7 +99,7 @@ public class ImagesProvider extends ContentProvider {
                 selection = _ID + "=?";
                 selectionArgs = new String[] { String.valueOf(ContentUris.parseId(uri)) };
 
-                cursor = database.query(UsersMaster.Clothes.TABLE2_NAME, projection, selection, selectionArgs,
+                cursor = database.query(UsersMaster.Accessories.TABLE_NAME, projection, selection, selectionArgs,
                         null, null, sortOrder);
                 break;
             default:
@@ -145,6 +148,5 @@ public class ImagesProvider extends ContentProvider {
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String s, @Nullable String[] strings) {
         return 0;
     }
-
-
 }
+

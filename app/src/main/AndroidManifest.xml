@@ -24,9 +24,19 @@
         <activity android:name=".Add" />
         <activity android:name=".Login" />
         <activity android:name=".ClothesView" />
-        <activity android:name=".AddAccessories" />
+        <activity android:name=".AddAccessories" android:theme="@style/AppTheme2" />
         <activity android:name=".AddClothes" />
         <activity android:name=".AccessoryView" />
+        <activity android:name=".DetailsActivity"
+            android:parentActivityName=".AddAccessories">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AddAccessories" />
+        </activity>
+        <provider
+            android:name=".AccessoriesImagesProvider"
+            android:authorities="com.example.surge"
+            android:exported="false" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
