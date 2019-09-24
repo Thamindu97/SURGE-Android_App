@@ -55,15 +55,21 @@ public class EditBuyInfo extends AppCompatActivity {
                 uemail = email.getText().toString();
                 uaddress = address.getText().toString();
 
-                if (!name.equals("") && !phone.equals("") && !email.equals("") && !address.equals("")) {
-                    if (db.updateBuyInfo(uname, uphone, uemail, uaddress))
+                if (!name.equals("") && !phone.equals("") && !email.equals("") && !address.equals(""))
+                {
+                    if (uphone.length() != 10)
+                    {
+                        Toast.makeText(EditBuyInfo.this, "Please Enter A Valid Number", Toast.LENGTH_SHORT).show();
+                    }
+                    else if (db.updateBuyInfo(uname, uphone, uemail, uaddress))
                     {
                         Toast.makeText(EditBuyInfo.this, "Data Updated Successfully", Toast.LENGTH_SHORT).show();
+                        finish();
                     }
-                    else
-                    {
-                        Toast.makeText(EditBuyInfo.this, "Data Cannot Be Updated", Toast.LENGTH_SHORT).show();
-                    }
+                }
+                else
+                {
+                    Toast.makeText(EditBuyInfo.this, "Fields Cannot Be Empty", Toast.LENGTH_SHORT).show();
                 }
             }
         });

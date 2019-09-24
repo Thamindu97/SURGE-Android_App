@@ -13,6 +13,8 @@ import Database.DBHandler;
 
 public class CardDetails extends AppCompatActivity {
 
+    String cname, ccardno, cdate, ccvv;
+
     EditText name, cardno, date, cvv;
 
     Button save;
@@ -41,17 +43,30 @@ public class CardDetails extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean isInserted = db.addCardDetails(name.getText().toString(),
-                        cardno.getText().toString(),date.getText().toString(),cvv.getText().toString());
 
-                if (isInserted == true)
+                cname = name.getText().toString();
+                ccardno = cardno.getText().toString();
+                cdate = date.getText().toString();
+                ccvv = cvv.getText().toString();
+
+                if (!cname.equals("") && !ccardno.equals("") && !cdate.equals("") && !ccvv.equals(""))
                 {
-                    Toast.makeText(CardDetails.this,"Data Inserted", Toast.LENGTH_SHORT).show();
-
+                    if (ccardno.length() != 12)
+                    {
+                        Toast.makeText(CardDetails.this, "Please Enter A Valid Number", Toast.LENGTH_SHORT).show();
+                    }
+                    if (ccvv.length() != 3)
+                    {
+                        Toast.makeText(CardDetails.this, "Please Enter A Valid Number", Toast.LENGTH_SHORT).show();
+                    }
+                    else if (db.addCardDetails(cname, ccardno, cdate, ccvv))
+                    {
+                        Toast.makeText(CardDetails.this,"Data Inserted", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else
                 {
-                    Toast.makeText(CardDetails.this,"Data Not Inserted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CardDetails.this, "Fields Cannot Be Empty", Toast.LENGTH_SHORT).show();
                 }
             }
         });
