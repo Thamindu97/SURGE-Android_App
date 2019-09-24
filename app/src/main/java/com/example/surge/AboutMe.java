@@ -105,6 +105,10 @@ public class AboutMe extends AppCompatActivity implements EasyPermissions.Permis
                     t.show();
                     MainActivity mn = new MainActivity();
                     mn.userName = "";
+
+                    // hides aboutMe button when logged out or removed user's account
+                    mn.aboutMe.setVisibility(View.GONE);
+                    mn.loginb.setVisibility(View.VISIBLE);
                 }
             }
         });

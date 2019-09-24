@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static String userName = "";
     public static String clothID = "";
-    Button login, logout, aboutMe;
+    Button loginb, logout, aboutMe;
 
 
     @Override
@@ -19,12 +19,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        login = (Button) findViewById(R.id.buttonlogin);
+        loginb = (Button) findViewById(R.id.buttonlogin);
         aboutMe = (Button) findViewById(R.id.buttonAboutMe);
+
 
         // hides login button when logged in
         if(userName != "") {
-            login.setVisibility(View.GONE);
+            loginb.setVisibility(View.GONE);
             aboutMe.setVisibility(View.VISIBLE);
         }
 
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         if(userName == "")
         {
             aboutMe.setVisibility(View.GONE);
-            login.setVisibility(View.VISIBLE);
+            loginb.setVisibility(View.VISIBLE);
         }
 
     }

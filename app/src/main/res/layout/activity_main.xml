@@ -482,7 +482,7 @@
         android:textColor="@color/buttonColor2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.973"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.077" />
@@ -584,28 +584,28 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="82dp"
-        android:layout_height="38dp"
+        android:layout_width="87dp"
+        android:layout_height="41dp"
         android:layout_marginTop="136dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/buttons_home"
         android:onClick="onClickAdd"
         android:text="@string/buttonAdd"
         android:textColor="@color/buttonColor2"
-        android:textSize="8sp"
+        android:textSize="9sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonAboutMe"
-        android:layout_width="82dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="228dp"
+        android:layout_width="95dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="204dp"
         android:background="@drawable/buttons_home"
         android:onClick="onClickAboutMe"
         android:text="About Me"
         android:textColor="@color/buttonColor2"
-        android:textSize="8sp"
+        android:textSize="9sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/button3"
         app:layout_constraintStart_toStartOf="parent" />
 
