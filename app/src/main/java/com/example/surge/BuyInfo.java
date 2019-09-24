@@ -12,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import Database.DBHandler;
 
 public class BuyInfo extends AppCompatActivity {
+
+    String uname, uphone, uemail, uaddress;
+
     EditText name, phone, email, address;
 
     Button save;
@@ -48,16 +51,25 @@ public class BuyInfo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                boolean isInserted = db.addBuyInfo(name.getText().toString(),
-                        phone.getText().toString(),email.getText().toString(),address.getText().toString());
+                uname = name.getText().toString();
+                uphone = phone.getText().toString();
+                uemail = email.getText().toString();
+                uaddress = address.getText().toString();
 
-                if (isInserted == true)
+                if (!uname.equals("") && !uphone.equals("") && !uemail.equals("") && !uaddress.equals(""))
                 {
-                    Toast.makeText(BuyInfo.this,"Data Inserted", Toast.LENGTH_SHORT).show();
+                    if (uphone.length() != 10)
+                    {
+                        Toast.makeText(BuyInfo.this, "Please Enter A Valid Number", Toast.LENGTH_SHORT).show();
+                    }
+                    if (db.addBuyInfo(uname, uphone, uemail, uaddress))
+                    {
+                        Toast.makeText(BuyInfo.this, "Data Inserted", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else
                 {
-                    Toast.makeText(BuyInfo.this,"Data Not Inserted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BuyInfo.this, "Fields Cannot Be Empty", Toast.LENGTH_SHORT).show();
                 }
             }
         });
