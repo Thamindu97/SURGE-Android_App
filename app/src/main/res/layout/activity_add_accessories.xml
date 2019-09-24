@@ -19,7 +19,7 @@
         android:textColor="@color/colorText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.589"
+        app:layout_constraintHorizontal_bias="0.963"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
@@ -36,19 +36,16 @@
 
     <Button
         android:id="@+id/pick_image"
-        android:layout_width="130dp"
+        android:layout_width="151dp"
         android:layout_height="51dp"
-        android:layout_marginTop="120dp"
         android:background="@drawable/buttons_home"
         android:text="PICK IMAGE"
         android:textColor="#FFF"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.206"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/acsAdd"
+        app:layout_constraintHorizontal_bias="0.169"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65" />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
         android:id="@+id/ascTypeLabel"
@@ -102,7 +99,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:text="Price"
         android:textSize="18sp"
@@ -158,7 +155,7 @@
         android:id="@+id/acsAdd"
         android:layout_width="151dp"
         android:layout_height="51dp"
-        android:layout_marginStart="208dp"
+        android:layout_marginStart="216dp"
         android:layout_marginBottom="196dp"
         android:background="@drawable/buttons_home"
         android:text="Add Accessory"
@@ -172,21 +169,21 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="141dp"
         android:layout_marginEnd="118dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginBottom="132dp"
         android:background="@drawable/buttons_home"
         android:text="View Accessories"
         android:textColor="@color/colorText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/acsDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="132dp"
+        android:layout_width="177dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="216dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/buttons_home"
         android:text="Delete Accessory"
         android:textColor="@color/colorText"
@@ -195,13 +192,17 @@
 
     <EditText
         android:id="@+id/acsDeleteText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_width="230dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="72dp"
         android:ems="10"
-        android:hint="Enter ID to delete"
+        android:hint="Enter ID to delete or update"
         android:inputType="textPersonName"
-        app:layout_constraintBaseline_toBaselineOf="@+id/acsDelete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.023"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -214,6 +215,7 @@
         android:inputType="numberDecimal"
         app:layout_constraintBaseline_toBaselineOf="@+id/acsPriceLabel"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/acsPriceLabel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

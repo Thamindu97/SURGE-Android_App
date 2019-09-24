@@ -106,14 +106,19 @@ public class AddAccessories extends AppCompatActivity implements View.OnClickLis
                         ByteArrayOutputStream baos = new ByteArrayOutputStream();
                         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                         byte[] data = baos.toByteArray();
-                        boolean isInserted = db.addAccessory(ascType.getText().toString(),
-                                ascSize.getText().toString(), ascColour.getText().toString(), ascPrice.getText().toString(), data);
 
-                        if(isInserted == true) {
-                            Toast.makeText(AddAccessories.this, "Accessory added.", Toast.LENGTH_LONG).show();
-                            emptyFields();
-                        }else
-                            Toast.makeText(AddAccessories.this,"Accessory not added.",Toast.LENGTH_LONG).show();
+                        if (!ascType.getText().toString().equals("") && !ascSize.getText().toString().equals("") && !ascColour.getText().toString().equals("") && !ascPrice.getText().toString().equals("")){
+                            boolean isInserted = db.addAccessory(ascType.getText().toString(),
+                                    ascSize.getText().toString(), ascColour.getText().toString(), ascPrice.getText().toString(), data);
+                            if (isInserted == true) {
+                                Toast.makeText(AddAccessories.this, "Accessory added.", Toast.LENGTH_LONG).show();
+                                emptyFields();
+                            } else
+                                Toast.makeText(AddAccessories.this, "Accessory not added.", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast toast = Toast.makeText(getApplicationContext(), "Please fill all required fields.", Toast.LENGTH_LONG);
+                            toast.show();
+                        }
                     }
                 }
         );
