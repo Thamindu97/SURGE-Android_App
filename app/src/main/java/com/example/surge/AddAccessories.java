@@ -136,9 +136,9 @@ public class AddAccessories extends AppCompatActivity implements View.OnClickLis
                             buffer.append("Id :" + res.getString(0) + "\n");
                             buffer.append("Item Type :" + res.getString(1) + "\n");
                             buffer.append("Size :" + res.getString(2) + "\n");
-                            buffer.append("Colour :" + res.getString(2) + "\n");
-                            buffer.append("Price :" + res.getString(3) + "\n");
-                            buffer.append("Image : " + res.getBlob(4) + "\n\n");
+                            buffer.append("Colour :" + res.getString(3) + "\n");
+                            buffer.append("Price :" + res.getString(4) + "\n");
+                            buffer.append("Image : " + res.getBlob(5) + "\n\n");
                         }
 
                         // Show all data
