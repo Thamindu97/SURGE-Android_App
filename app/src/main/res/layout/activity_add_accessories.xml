@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".AddAccessories">
 
+    <Button
+        android:id="@+id/acsUpdate"
+        android:layout_width="177dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/buttons_home"
+        android:onClick="updateAccessory"
+        android:text="Update Accessory"
+        android:textColor="@color/colorText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.589"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <ImageView
         android:id="@+id/profileImageView"
         android:layout_width="200dp"
@@ -20,19 +36,19 @@
 
     <Button
         android:id="@+id/pick_image"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="130dp"
+        android:layout_height="51dp"
         android:layout_marginTop="120dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/buttons_home"
         android:text="PICK IMAGE"
         android:textColor="#FFF"
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.206"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.647" />
+        app:layout_constraintVertical_bias="0.65" />
 
     <TextView
         android:id="@+id/ascTypeLabel"
@@ -140,15 +156,14 @@
 
     <Button
         android:id="@+id/acsAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="163dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="136dp"
+        android:layout_width="151dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginBottom="196dp"
+        android:background="@drawable/buttons_home"
         android:text="Add Accessory"
+        android:textColor="@color/colorText"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.543"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -157,20 +172,24 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="141dp"
         android:layout_marginEnd="118dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="72dp"
+        android:background="@drawable/buttons_home"
         android:text="View Accessories"
+        android:textColor="@color/colorText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/acsDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="132dp"
+        android:background="@drawable/buttons_home"
         android:text="Delete Accessory"
+        android:textColor="@color/colorText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -178,7 +197,7 @@
         android:id="@+id/acsDeleteText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:ems="10"
         android:hint="Enter ID to delete"
         android:inputType="textPersonName"

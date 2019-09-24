@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AccessoriesUpdate">
+
+    <EditText
+        android:id="@+id/upAcsType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="9dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upAcsId" />
+
+    <EditText
+        android:id="@+id/upAcsSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="9dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upAcsType" />
+
+    <TextView
+        android:id="@+id/textViewAcsType"
+        android:layout_width="151dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="28dp"
+        android:text="Accessory Type"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAcsId" />
+
+    <TextView
+        android:id="@+id/textViewAcsId"
+        android:layout_width="151dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="57dp"
+        android:text="Accessory ID"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateAccessoriesLabel" />
+
+    <TextView
+        android:id="@+id/textViewAcsPrice"
+        android:layout_width="151dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="33dp"
+        android:text="Accessory Price"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAcsColour" />
+
+    <TextView
+        android:id="@+id/textViewAcsColour"
+        android:layout_width="151dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="31dp"
+        android:text="Accessory Colour"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAcsSize" />
+
+    <TextView
+        android:id="@+id/updateAccessoriesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Update Accessory Details"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textViewAcsSize"
+        android:layout_width="151dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="32dp"
+        android:text="Accessory Size"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAcsType" />
+
+    <EditText
+        android:id="@+id/upAcsColour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="9dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upAcsSize" />
+
+    <EditText
+        android:id="@+id/upAcsPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="9dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upAcsColour" />
+
+    <TextView
+        android:id="@+id/upAcsId"
+        android:layout_width="208dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="9dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateAccessoriesLabel" />
+
+    <Button
+        android:id="@+id/buttonSaveAcsUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="144dp"
+        android:background="@drawable/buttons_home"
+        android:text="@string/button_buyinfo_save"
+        android:textColor="@color/colorText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

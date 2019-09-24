@@ -175,6 +175,14 @@ public class AddAccessories extends AppCompatActivity implements View.OnClickLis
         );
     }
 
+    public void updateAccessory(View view)
+    {
+        Intent intent = new Intent(this, AccessoriesUpdate.class);
+        String keyIdentifier = null;
+        intent.putExtra("key", ascDelID.getText().toString());
+        startActivity(intent);
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -331,18 +339,4 @@ public class AddAccessories extends AppCompatActivity implements View.OnClickLis
         profileImageView.setImageResource(R.drawable.ic_account_circle_black);
 
     }
-
-//    public void addToDb(View view){
-//
-//        profileImageView.setDrawingCacheEnabled(true);
-//        profileImageView.buildDrawingCache();
-//        Bitmap bitmap = profileImageView.getDrawingCache();
-//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-//        byte[] data = baos.toByteArray();
-//        if(db.addToDb(data) == true)
-//            Toast.makeText(this, "Image saved to DB successfully", Toast.LENGTH_SHORT).show();
-//        else
-//            Toast.makeText(this, "Error occurred.", Toast.LENGTH_SHORT).show();
-//    }
 }

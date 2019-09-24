@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.surge.AboutMe;
 import com.example.surge.Accessories;
+import com.example.surge.AccessoriesUpdate;
 import com.example.surge.BuyInfo;
 import com.example.surge.Clothes;
 import com.example.surge.DbBitmapUtility;
@@ -24,6 +25,8 @@ public class   DBHandler extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Surge2019.db";
 
     public static String usname, cname;
+
+    public static String aid;
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -288,6 +291,65 @@ public class   DBHandler extends SQLiteOpenHelper {
         cursor.close();
 
         return AccessList;
+    }
+
+    public void showAccessoriesInfo(String id)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+
+        String[] projection = {
+                UsersMaster.Accessories._ID,
+                UsersMaster.Accessories.COLUMN_NAME_TYPE,
+                UsersMaster.Accessories.COLUMN_NAME_SIZE,
+                UsersMaster.Accessories.COLUMN_NAME_COLOUR,
+                UsersMaster.Accessories.COLUMN_NAME_PRICE
+        };
+
+        String selection = UsersMaster.Accessories._ID + " = ?" ;
+        String[] selectionArgs = {id};
+
+
+
+        Cursor cursor = db.query(
+                UsersMaster.Accessories.TABLE_NAME,           // the table to query
+                projection,                 // the columns to return
+                selection,               // the columns for the WHERE clause
+                selectionArgs,            // the values for the WHERE clause
+                null,               // don't group the rows
+                null,                // don't filter by row groups
+                null                  // the sort order
+        );
+
+        while(cursor.moveToNext()) {
+            AccessoriesUpdate editBuyInfo = new AccessoriesUpdate();
+            editBuyInfo.accessType.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.Accessories.COLUMN_NAME_TYPE)));
+            editBuyInfo.accessColour.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.Accessories.COLUMN_NAME_COLOUR)));
+            editBuyInfo.accessSize.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.Accessories.COLUMN_NAME_SIZE)));
+            editBuyInfo.accessPrice.setText(cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.Accessories.COLUMN_NAME_PRICE)));
+        }
+
+    }
+
+    public boolean updateAccessoryInfo(String id, String type, String colour, String size, String price)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(UsersMaster.Accessories.COLUMN_NAME_TYPE,type);
+        values.put(UsersMaster.Accessories.COLUMN_NAME_COLOUR,colour);
+        values.put(UsersMaster.Accessories.COLUMN_NAME_SIZE,size);
+        values.put(UsersMaster.Accessories.COLUMN_NAME_PRICE,price);
+
+        String selection = UsersMaster.Accessories._ID + " LIKE ?";
+        String[] selectionArgs = {id};
+
+        int count = db.update(UsersMaster.Accessories.TABLE_NAME,values,selection,selectionArgs);
+
+        if (count >= 1)
+            return true;
+        else
+            return false;
+
     }
 
     //ACCESSORIES - END
